@@ -60,7 +60,7 @@ export default function PrivacyPolicy() {
               <ul className="list-disc list-inside space-y-2 mt-4">
                 <li>提供いただいた音声データは、文字起こしと認定調査項目の自動出力のためのみに使用します</li>
                 <li>AI モデルの学習・改善には使用いたしません</li>
-                <li>音声データは、アップロード日から10日後に自動的に削除されます</li>
+                <li>記録データは、Excelファイルをダウンロード後5日で自動的に削除されます</li>
                 <li>削除後は復旧できませんので、必要に応じて事前にバックアップをお取りください</li>
               </ul>
             </section>

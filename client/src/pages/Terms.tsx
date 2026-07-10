@@ -56,8 +56,9 @@ export default function Terms() {
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">第3条 利用料金</h2>
               <p>本サービスの利用料金は以下の通りです：</p>
               <ul className="list-disc list-inside space-y-2 mt-4">
-                <li><strong>個人プラン</strong>：月額 ¥2,980（月8回の調査使用、繰越なし）</li>
-                <li><strong>単発利用</strong>：1回 ¥600（月額制限なし）</li>
+                <li><strong>トライアル</strong>：無料（14日間・3回まで、クレジットカード不要）</li>
+                <li><strong>月額プラン</strong>：月額 ¥2,980（月8回の調査使用、繰越なし、いつでも解約可能）</li>
+                <li><strong>従量課金</strong>：1回 ¥600（クレジット購入制、月額制限なし、有効期限なし）</li>
               </ul>
               <p className="mt-4">
                 料金は予告なく変更される場合があります。変更は、本ページに掲載した時点で有効となります。

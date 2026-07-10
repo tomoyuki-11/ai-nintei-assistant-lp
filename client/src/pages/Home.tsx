@@ -197,7 +197,7 @@ export default function Home() {
               {
                 icon: FileText,
                 title: "3. 保存・貼り付け",
-                description: "帰社後PCで確認し、エクセルに保存。市区町村の指定様式に貼り付けるだけ。",
+                description: "内容を確認し、Excelでダウンロード。市区町村の指定様式に貼り付けるだけ。",
               },
             ].map((step, idx) => {
               const Icon = step.icon;
@@ -212,6 +212,10 @@ export default function Home() {
               );
             })}
           </div>
+          <p className="text-center text-sm text-gray-500 mt-8">
+            録音のほか、面談メモの<span className="font-bold">テキスト貼り付け</span>や、録音済みの
+            <span className="font-bold">音声ファイルのアップロード</span>にも対応しています。
+          </p>
         </div>
       </section>
 
@@ -258,13 +262,13 @@ export default function Home() {
                 icon: Shield,
                 title: "AIに学習されない",
                 description:
-                  "文字起こし内容・生成結果がAIの学習に利用されることはありません。あなたのデータは完全に保護されます。",
+                  "音声データ・文字起こし内容・生成結果がAIの学習に利用されることはありません。あなたのデータは完全に保護されます。",
               },
               {
                 icon: Lock,
-                title: "履歴は10日で自動削除",
+                title: "ダウンロード後5日で自動削除",
                 description:
-                  "生成完了後、すべてのデータは10日で自動的に削除されます。長期保存されることはありません。",
+                  "Excelファイルをダウンロード後、5日で記録データは自動的に削除されます。長期保存されることはありません。",
               },
             ].map((item, idx) => {
               const Icon = item.icon;
@@ -287,24 +291,60 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-16 md:py-24 bg-blue-50">
+      <section id="pricing" className="py-16 md:py-24 bg-blue-50">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               シンプルな料金プラン
             </h2>
             <p className="text-lg text-gray-600">
-              ご利用状況に合わせて選択できます
+              まずは無料のトライアルからお試しいただけます
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Individual Plan */}
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+              {/* Trial Plan */}
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+                <div className="bg-green-500 text-white p-6">
+                  <h3 className="text-2xl font-bold mb-2">トライアル</h3>
+                  <p className="text-sm opacity-90">まずは無料で試す</p>
+                </div>
+                <div className="p-8">
+                  <div className="mb-6">
+                    <div className="text-4xl font-bold text-gray-900 mb-2">¥0</div>
+                    <p className="text-gray-600">14日間・3回まで</p>
+                  </div>
+
+                  <div className="space-y-3 mb-8">
+                    {["14日間無料", "3回まで利用可能", "クレジットカード不要"].map((f) => (
+                      <div key={f} className="flex items-start gap-3">
+                        <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                        <p className="font-bold text-gray-900">{f}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Button
+                    size="lg"
+                    className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition"
+                    onClick={() => {
+                      alert("無料トライアルの申し込みページへ移動します");
+                    }}
+                  >
+                    無料で始める
+                  </Button>
+                </div>
+              </div>
+
+              {/* Monthly Plan (recommended) */}
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition ring-2 ring-blue-600 md:-mt-4 relative">
+                <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                  おすすめ
+                </div>
                 <div className="bg-blue-600 text-white p-6">
-                  <h3 className="text-2xl font-bold mb-2">個人プラン</h3>
-                  <p className="text-sm opacity-90">認定調査員向け</p>
+                  <h3 className="text-2xl font-bold mb-2">月額プラン</h3>
+                  <p className="text-sm opacity-90">定期利用に最適</p>
                 </div>
                 <div className="p-8">
                   <div className="mb-6">
@@ -312,36 +352,35 @@ export default function Home() {
                       ¥2,980
                       <span className="text-lg text-gray-600 font-normal">/月</span>
                     </div>
-                    <p className="text-gray-600">8回の調査使用</p>
+                    <p className="text-gray-600">月8回まで（¥373/回相当）</p>
                   </div>
 
-                  <div className="space-y-4 mb-8">
-                    <div className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-bold text-gray-900">月8回まで使用可能</p>
-                        <p className="text-sm text-gray-600">繰越なし</p>
+                  <div className="space-y-3 mb-8">
+                    {["月8回まで利用可能", "毎月自動更新", "いつでも解約可能"].map((f) => (
+                      <div key={f} className="flex items-start gap-3">
+                        <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                        <p className="font-bold text-gray-900">{f}</p>
                       </div>
-                    </div>
+                    ))}
                   </div>
 
                   <Button
                     size="lg"
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition"
                     onClick={() => {
-                      alert("個人プランの申し込みページへ移動します");
+                      alert("月額プランの申し込みページへ移動します");
                     }}
                   >
-                    このプランを選択
+                    月額プランに申し込む
                   </Button>
                 </div>
               </div>
 
-              {/* Single Use Plan */}
+              {/* Pay-as-you-go Plan */}
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-                <div className="bg-green-500 text-white p-6">
-                  <h3 className="text-2xl font-bold mb-2">単発利用</h3>
-                  <p className="text-sm opacity-90">必要な時だけ購入</p>
+                <div className="bg-gray-700 text-white p-6">
+                  <h3 className="text-2xl font-bold mb-2">従量課金</h3>
+                  <p className="text-sm opacity-90">使った分だけ</p>
                 </div>
                 <div className="p-8">
                   <div className="mb-6">
@@ -349,38 +388,34 @@ export default function Home() {
                       ¥600
                       <span className="text-lg text-gray-600 font-normal">/回</span>
                     </div>
-                    <p className="text-gray-600">1回の調査使用権</p>
+                    <p className="text-gray-600">クレジットを購入して使用</p>
                   </div>
 
-                  <div className="space-y-4 mb-8">
-                    <div className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-bold text-gray-900">月額制限なし</p>
-                        <p className="text-sm text-gray-600">必要な時だけ購入できる</p>
+                  <div className="space-y-3 mb-8">
+                    {["使わない月は費用なし", "有効期限なし", "必要な時だけ購入できる"].map((f) => (
+                      <div key={f} className="flex items-start gap-3">
+                        <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                        <p className="font-bold text-gray-900">{f}</p>
                       </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-bold text-gray-900">発注後即時使用可能</p>
-                        <p className="text-sm text-gray-600">発注後、すぐに使用できます</p>
-                      </div>
-                    </div>
+                    ))}
                   </div>
 
                   <Button
                     size="lg"
-                    className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition"
+                    variant="outline"
+                    className="w-full border-2 border-gray-700 text-gray-700 hover:bg-gray-100 font-bold py-3 rounded-lg transition"
                     onClick={() => {
-                      alert("単発購入ページへ移動します");
+                      alert("クレジット購入ページへ移動します");
                     }}
                   >
-                    単発購入する
+                    クレジットを購入する
                   </Button>
                 </div>
               </div>
             </div>
+            <p className="text-center text-sm text-gray-500 mt-8">
+              現在は個人でのご利用に対応しています。法人・複数名でのご利用は準備中です。
+            </p>
           </div>
         </div>
       </section>
@@ -403,27 +438,27 @@ export default function Home() {
                 {
                   id: "q1",
                   q: "録音した音声データはどう扱われますか？",
-                  a: "音声データはAIの学習には使用されません。文字起こし処理のためだけに使用され、処理完了後は10日で自動削除されます。",
+                  a: "音声データや文字起こし内容がAIの学習に使用されることはありません。文字起こし・整形処理のためだけに使用され、Excelファイルをダウンロード後5日で自動削除されます。",
                 },
                 {
                   id: "q2",
                   q: "スマホとパソコン、両方必要ですか？",
-                  a: "はい、スマホで録音し、パソコンで確認・修正・保存するワークフローになっています。iOS・Android両対応です。",
+                  a: "いいえ、スマートフォン1台で録音から整形結果の確認、Excelダウンロードまで完結します。もちろんパソコンからのご利用も可能です。ブラウザで動作するWebアプリのため、iOS・Androidどちらのスマートフォンでもインストール不要でお使いいただけます（App Store・Google Playのネイティブアプリは今後の開発を予定しています）。",
                 },
                 {
                   id: "q3",
                   q: "市区町村ごとの様式に対応していますか？",
-                  a: "AI生成結果は標準フォーマットで出力されます。各市区町村の指定様式にコピー&ペーストで対応できるよう設計されています。",
+                  a: "認定調査票の基本項目に沿ったExcelファイルとして出力されます。画面上でも整形結果を確認・コピーできるため、各市区町村の指定様式への転記にもご利用いただけます。",
                 },
                 {
                   id: "q4",
                   q: "導入に特別な機器は必要ですか？",
-                  a: "いいえ。スマートフォンとパソコンがあれば利用できます。特別なハードウェアやセットアップは不要です。",
+                  a: "いいえ。スマートフォンまたはパソコンとインターネット環境があれば、ブラウザからそのままご利用いただけます。アプリのインストールや特別なハードウェアは不要です。",
                 },
                 {
                   id: "q5",
                   q: "複数の調査員で利用できますか？",
-                  a: "はい。組織内の複数ユーザーで利用可能です。管理者ダッシュボードから利用状況を一元管理できます。",
+                  a: "現在は個人でのご利用に対応しています。法人・複数名でのご利用（管理者ダッシュボードでの一元管理など）は現在準備中です。リリース時期は追ってご案内します。",
                 },
                 {
                   id: "q6",
