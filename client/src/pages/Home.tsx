@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Check, Mic, Zap, FileText, Shield, Lock } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -14,6 +15,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 export default function Home() {
   const supportEmail = "support@ai-nintei.example.com";
+  const [, navigate] = useLocation();
 
   return (
     <div className="min-h-screen bg-white">
@@ -83,9 +85,7 @@ export default function Home() {
                   size="lg"
                   variant="outline"
                   className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold text-lg px-8 py-6 rounded-lg"
-                  onClick={() => {
-                    alert("お問い合わせフォームへ移動します");
-                  }}
+                  onClick={() => navigate("/contact")}
                 >
                   お問い合わせ
                 </Button>
@@ -131,9 +131,7 @@ export default function Home() {
                 size="lg"
                 variant="outline"
                 className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold text-base px-6 py-5 rounded-lg w-full"
-                onClick={() => {
-                  alert("お問い合わせフォームへ移動します");
-                }}
+                onClick={() => navigate("/contact")}
               >
                 お問い合わせ
               </Button>
@@ -517,9 +515,7 @@ export default function Home() {
               size="lg"
               variant="outline"
               className="border-2 border-white text-white hover:bg-white/10 font-bold text-lg px-8 py-6 rounded-lg"
-              onClick={() => {
-                alert("お問い合わせフォームへ移動します");
-              }}
+              onClick={() => navigate("/contact")}
             >
               お問い合わせ
             </Button>
@@ -591,7 +587,7 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href={`mailto:${supportEmail}`} className="hover:text-white transition">
+                  <a href="/contact" className="hover:text-white transition">
                     お問い合わせ
                   </a>
                 </li>
