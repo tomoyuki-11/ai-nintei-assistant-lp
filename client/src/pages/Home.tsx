@@ -1,0 +1,608 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Check, Mic, Zap, FileText, Shield, Lock } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
+/**
+ * AI認定調査アシスタント ランディングページ
+ * 
+ * デザイン戦略：信頼と効率の融合
+ * - 白と青を基調とした清潔感
+ * - 40〜60代ユーザーを想定した大きな文字と高いコントラスト
+ * - 業務フローの可視化と個人情報保護の強調
+ */
+
+export default function Home() {
+  const supportEmail = "support@ai-nintei.example.com";
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
+        <div className="container flex items-center justify-between py-4">
+          <div className="flex items-center gap-3">
+            <img src="/logo.png" alt="AI認定調査アシスタント" className="h-10 w-auto" />
+            <span className="hidden sm:inline text-lg font-bold text-gray-900">AI認定調査アシスタント</span>
+          </div>
+          <div className="hidden md:flex items-center gap-8">
+            <a href="#features" className="text-sm text-gray-600 hover:text-blue-600 transition">
+              機能
+            </a>
+            <a href="#security" className="text-sm text-gray-600 hover:text-blue-600 transition">
+              セキュリティ
+            </a>
+            <a href="#faq" className="text-sm text-gray-600 hover:text-blue-600 transition">
+              FAQ
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-blue-100 py-12 md:py-24">
+        <div className="container">
+          {/* Mobile: Image First */}
+          <div className="md:hidden mb-8">
+            <div className="relative w-full rounded-lg overflow-hidden shadow-lg">
+              <img
+                src="/manus-storage/nintei-assessment-flow_c12d30e3.png"
+                alt="介護認定調査の流れ"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+
+          {/* Desktop: Two Column Layout */}
+          <div className="hidden md:grid grid-cols-2 gap-12 items-center">
+            {/* Left: Text Content */}
+            <div className="space-y-8 animate-fade-in">
+              <div>
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+                  認定調査の特記事項、
+                  <br />
+                  もうAIに任せませんか？
+                </h1>
+                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  録音するだけ。AIが文字起こしから認定調査項目に沿った記録作成まで。
+                  <br />
+                  <span className="text-2xl font-bold text-blue-600">調査業務の負担を約7割軽減</span>
+                  します。
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  size="lg"
+                  className="bg-green-500 hover:bg-green-600 text-white font-bold text-lg px-8 py-6 rounded-lg transition-all hover:scale-105"
+                  onClick={() => {
+                    alert("無料トライアルの申し込みページへ移動します");
+                  }}
+                >
+                  無料で試してみる
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold text-lg px-8 py-6 rounded-lg"
+                  onClick={() => {
+                    alert("お問い合わせフォームへ移動します");
+                  }}
+                >
+                  お問い合わせ
+                </Button>
+              </div>
+            </div>
+
+            {/* Right: Visual */}
+            <div className="relative w-full rounded-lg overflow-hidden shadow-2xl">
+              <img
+                src="/manus-storage/nintei-assessment-flow_c12d30e3.png"
+                alt="介護認定調査の流れ"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+
+          {/* Mobile: Text Content Below Image */}
+          <div className="md:hidden space-y-6">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 leading-tight mb-3">
+                認定調査の特記事項、
+                <br />
+                もうAIに任せませんか？
+              </h1>
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                録音するだけ。AIが文字起こしから認定調査項目に沿った記録作成まで。
+                <br />
+                <span className="text-xl font-bold text-blue-600">調査業務の負担を約7割軽減</span>
+                します。
+              </p>
+            </div>
+            <div className="flex flex-col gap-3">
+              <Button
+                size="lg"
+                className="bg-green-500 hover:bg-green-600 text-white font-bold text-base px-6 py-5 rounded-lg transition-all hover:scale-105 w-full"
+                onClick={() => {
+                  alert("無料トライアルの申し込みページへ移動します");
+                }}
+              >
+                無料で試してみる
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold text-base px-6 py-5 rounded-lg w-full"
+                onClick={() => {
+                  alert("お問い合わせフォームへ移動します");
+                }}
+              >
+                お問い合わせ
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pain Points Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              こんなお悩み、ありませんか？
+            </h2>
+            <p className="text-lg text-gray-600">
+              認定調査員やケアマネジャーが直面する課題
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {[
+              "特記事項の作成に毎回1時間以上かかっている",
+              "面談中のメモに追われて、聞き取りに集中できない",
+              "帰社後の清書・転記作業で残業が増えている",
+              "記録の転記ミスが発生し、修正に時間がかかる",
+            ].map((item, idx) => (
+              <div key={idx} className="flex items-start gap-4 p-6 bg-blue-50 rounded-lg hover:bg-blue-100 transition">
+                <Check className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                <p className="text-gray-800 font-medium">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3 Steps Solution */}
+      <section id="features" className="py-16 md:py-24 bg-blue-50">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              AI認定調査アシスタントなら、たった3ステップ
+            </h2>
+            <p className="text-lg text-gray-600">
+              シンプルで効率的なワークフロー
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              {
+                icon: Mic,
+                title: "1. 録音",
+                description: "訪問先でスマホで面談を録音するだけ。特別な操作は不要です。",
+              },
+              {
+                icon: Zap,
+                title: "2. AI自動作成",
+                description: "文字起こし＋認定調査項目に基づいた内容を自動出力。移動中に処理完了。",
+              },
+              {
+                icon: FileText,
+                title: "3. 保存・貼り付け",
+                description: "帰社後PCで確認し、エクセルに保存。市区町村の指定様式に貼り付けるだけ。",
+              },
+            ].map((step, idx) => {
+              const Icon = step.icon;
+              return (
+                <div key={idx} className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">{step.title}</h3>
+                  <p className="text-gray-700 text-center">{step.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Impact Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div className="container text-center">
+          <div className="mb-8">
+            <p className="text-lg md:text-xl mb-4 opacity-90">特記事項作成などの負担を</p>
+            <h2 className="text-5xl md:text-6xl font-bold mb-4">約7割軽減</h2>
+            <p className="text-lg md:text-xl opacity-90">
+              聞き取りに集中でき、記録はAIにおまかせ。
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-4xl mx-auto">
+            {[
+              { label: "作業時間削減", value: "約70%" },
+              { label: "残業削減", value: "約5時間/週" },
+              { label: "ヒューマンエラー削減", value: "約90%" },
+            ].map((stat, idx) => (
+              <div key={idx} className="bg-white/10 backdrop-blur p-6 rounded-lg">
+                <p className="text-sm opacity-80 mb-2">{stat.label}</p>
+                <p className="text-3xl font-bold">{stat.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Security Section */}
+      <section id="security" className="py-16 md:py-24 bg-blue-50">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              個人情報保護を最優先に設計
+            </h2>
+            <p className="text-lg text-gray-600">
+              介護・行政分野の厳格な要件に対応
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            {[
+              {
+                icon: Shield,
+                title: "AIに学習されない",
+                description:
+                  "文字起こし内容・生成結果がAIの学習に利用されることはありません。あなたのデータは完全に保護されます。",
+              },
+              {
+                icon: Lock,
+                title: "履歴は10日で自動削除",
+                description:
+                  "生成完了後、すべてのデータは10日で自動的に削除されます。長期保存されることはありません。",
+              },
+            ].map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div key={idx} className="bg-white p-8 rounded-lg shadow-md border-l-4 border-green-500">
+                  <div className="flex items-start gap-4">
+                    <Icon className="w-8 h-8 text-green-500 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                      <p className="text-gray-700">{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="py-16 md:py-24 bg-blue-50">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              シンプルな料金プラン
+            </h2>
+            <p className="text-lg text-gray-600">
+              ご利用状況に合わせて選択できます
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Individual Plan */}
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+                <div className="bg-blue-600 text-white p-6">
+                  <h3 className="text-2xl font-bold mb-2">個人プラン</h3>
+                  <p className="text-sm opacity-90">認定調査員向け</p>
+                </div>
+                <div className="p-8">
+                  <div className="mb-6">
+                    <div className="text-4xl font-bold text-gray-900 mb-2">
+                      ¥2,980
+                      <span className="text-lg text-gray-600 font-normal">/月</span>
+                    </div>
+                    <p className="text-gray-600">8回の調査使用</p>
+                  </div>
+
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="font-bold text-gray-900">月8回まで使用可能</p>
+                        <p className="text-sm text-gray-600">繰越なし</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <Button
+                    size="lg"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition"
+                    onClick={() => {
+                      alert("個人プランの申し込みページへ移動します");
+                    }}
+                  >
+                    このプランを選択
+                  </Button>
+                </div>
+              </div>
+
+              {/* Single Use Plan */}
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+                <div className="bg-green-500 text-white p-6">
+                  <h3 className="text-2xl font-bold mb-2">単発利用</h3>
+                  <p className="text-sm opacity-90">必要な時だけ購入</p>
+                </div>
+                <div className="p-8">
+                  <div className="mb-6">
+                    <div className="text-4xl font-bold text-gray-900 mb-2">
+                      ¥600
+                      <span className="text-lg text-gray-600 font-normal">/回</span>
+                    </div>
+                    <p className="text-gray-600">1回の調査使用権</p>
+                  </div>
+
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="font-bold text-gray-900">月額制限なし</p>
+                        <p className="text-sm text-gray-600">必要な時だけ購入できる</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="font-bold text-gray-900">発注後即時使用可能</p>
+                        <p className="text-sm text-gray-600">発注後、すぐに使用できます</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <Button
+                    size="lg"
+                    className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition"
+                    onClick={() => {
+                      alert("単発購入ページへ移動します");
+                    }}
+                  >
+                    単発購入する
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-16 md:py-24 bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              よくある質問
+            </h2>
+            <p className="text-lg text-gray-600">
+              ご不明な点はこちらからご確認ください
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {[
+                {
+                  id: "q1",
+                  q: "録音した音声データはどう扱われますか？",
+                  a: "音声データはAIの学習には使用されません。文字起こし処理のためだけに使用され、処理完了後は10日で自動削除されます。",
+                },
+                {
+                  id: "q2",
+                  q: "スマホとパソコン、両方必要ですか？",
+                  a: "はい、スマホで録音し、パソコンで確認・修正・保存するワークフローになっています。iOS・Android両対応です。",
+                },
+                {
+                  id: "q3",
+                  q: "市区町村ごとの様式に対応していますか？",
+                  a: "AI生成結果は標準フォーマットで出力されます。各市区町村の指定様式にコピー&ペーストで対応できるよう設計されています。",
+                },
+                {
+                  id: "q4",
+                  q: "導入に特別な機器は必要ですか？",
+                  a: "いいえ。スマートフォンとパソコンがあれば利用できます。特別なハードウェアやセットアップは不要です。",
+                },
+                {
+                  id: "q5",
+                  q: "複数の調査員で利用できますか？",
+                  a: "はい。組織内の複数ユーザーで利用可能です。管理者ダッシュボードから利用状況を一元管理できます。",
+                },
+                {
+                  id: "q6",
+                  q: "サポートについて",
+                  a: (
+                    <div>
+                      <p className="mb-3">
+                        ご不明な点やお困りのことがあれば、以下のメールアドレスまでお気軽にお問い合わせください。
+                      </p>
+                      <a
+                        href={`mailto:${supportEmail}`}
+                        className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-bold"
+                      >
+                        {supportEmail}
+                      </a>
+                    </div>
+                  ),
+                },
+              ].map((faq) => (
+                <AccordionItem key={faq.id} value={faq.id} className="border border-gray-200 rounded-lg px-6 py-4">
+                  <AccordionTrigger className="hover:text-blue-600 transition">
+                    <span className="text-left font-bold text-gray-900">{faq.q}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-700 mt-4">
+                    {typeof faq.a === "string" ? faq.a : faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div className="container text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            今日の訪問調査から、記録の負担を減らしませんか？
+          </h2>
+          <p className="text-lg md:text-xl mb-8 opacity-90">
+            無料トライアルで、AI認定調査アシスタントの効果を実感してください。
+            <br />
+            クレジットカード不要、すぐに始められます。
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              className="bg-green-500 hover:bg-green-600 text-white font-bold text-lg px-8 py-6 rounded-lg transition-all hover:scale-105"
+              onClick={() => {
+                alert("無料トライアルの申し込みページへ移動します");
+              }}
+            >
+              無料で試してみる
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-white text-white hover:bg-white/10 font-bold text-lg px-8 py-6 rounded-lg"
+              onClick={() => {
+                alert("お問い合わせフォームへ移動します");
+              }}
+            >
+              お問い合わせ
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <img src="/logo.png" alt="AI認定調査アシスタント" className="h-8 w-auto mb-4" />
+              <p className="text-sm text-gray-400">
+                介護現場の業務効率化を実現するAIアシスタント
+              </p>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">製品</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <a href="#" className="hover:text-white transition">
+                    機能
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition">
+                    料金
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition">
+                    デモ
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">サービス</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <a href="/#features" className="hover:text-white transition">
+                    機能
+                  </a>
+                </li>
+                <li>
+                  <a href="/#pricing" className="hover:text-white transition">
+                    料金
+                  </a>
+                </li>
+                <li>
+                  <a href="/#faq" className="hover:text-white transition">
+                    FAQ
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">法務</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <a href="/privacy" className="hover:text-white transition">
+                    プライバシーポリシー
+                  </a>
+                </li>
+                <li>
+                  <a href="/terms" className="hover:text-white transition">
+                    利用規約
+                  </a>
+                </li>
+                <li>
+                  <a href={`mailto:${supportEmail}`} className="hover:text-white transition">
+                    お問い合わせ
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 pt-8">
+            <p className="text-center text-sm text-gray-400">
+              © 2026 AI認定調査アシスタント. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Scroll Animation Styles */}
+      <style>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in {
+          animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+          scroll-behavior: smooth;
+        }
+
+        /* Button active state */
+        button:active {
+          transform: scale(0.97);
+        }
+
+        /* Link hover effect */
+        a {
+          transition: color 0.2s ease;
+        }
+      `}</style>
+    </div>
+  );
+}
