@@ -81,47 +81,47 @@ export default function Terms() {
                 <li>本サービスの運営を妨害する行為</li>
                 <li>不正なアクセスまたは改ざん</li>
                 <li>本サービスの内容を無断で複製・配布する行為</li>
-                <li>その他当社が不適切と判断する行為</li>
+                <li>その他運営者が不適切と判断する行為</li>
               </ul>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">第6条 知的財産権</h2>
               <p>
-                本サービスに関する一切の知的財産権は、当社またはその権利者に帰属します。利用者は、本サービスの利用に必要な範囲内でのみ、これらを利用できます。
+                本サービスに関する一切の知的財産権は、運営者またはその権利者に帰属します。利用者は、本サービスの利用に必要な範囲内でのみ、これらを利用できます。
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">第7条 責任の制限</h2>
               <p>
-                本サービスは「現状のまま」提供されます。当社は、本サービスの利用に起因する損害について、一切の責任を負いません。ただし、当社の故意または重大な過失による場合は、この限りではありません。
+                本サービスは「現状のまま」提供されます。運営者は、本サービスの利用に起因する損害について、一切の責任を負いません。ただし、運営者の故意または重大な過失による場合は、この限りではありません。
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">第8条 サービスの中断・終了</h2>
               <p>
-                当社は、以下の場合、予告なく本サービスの全部または一部を中断・終了できます：
+                運営者は、以下の場合、予告なく本サービスの全部または一部を中断・終了できます：
               </p>
               <ul className="list-disc list-inside space-y-2 mt-4">
                 <li>システムメンテナンスが必要な場合</li>
                 <li>利用者が本規約に違反した場合</li>
-                <li>その他当社が必要と判断した場合</li>
+                <li>その他運営者が必要と判断した場合</li>
               </ul>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">第9条 利用者の責任</h2>
               <p>
-                利用者は、本サービスの利用に関して自身が行った一切の行為について責任を負います。利用者の行為により当社が損害を被った場合、利用者はこれを賠償する義務を負います。
+                利用者は、本サービスの利用に関して自身が行った一切の行為について責任を負います。利用者の行為により運営者が損害を被った場合、利用者はこれを賠償する義務を負います。
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">第10条 規約の変更</h2>
               <p>
-                当社は、法令の変更またはサービス改善のため、本規約を予告なく変更することがあります。変更後の規約は、本ページに掲載した時点で有効となります。
+                運営者は、法令の変更またはサービス改善のため、本規約を予告なく変更することがあります。変更後の規約は、本ページに掲載した時点で有効となります。
               </p>
             </section>
 
@@ -138,13 +138,13 @@ export default function Terms() {
                 本規約に関するご質問やご不明な点がございましたら、以下のメールアドレスまでお問い合わせください。
               </p>
               <p className="mt-4 font-bold">
-                support@ai-nintei.example.com
+                itcaremanagement.001@gmail.com
               </p>
             </section>
 
             <section className="mt-12 pt-8 border-t border-gray-200">
               <p className="text-sm text-gray-600">
-                最終更新日：2026年7月6日
+                最終更新日：2026年7月14日
               </p>
             </section>
           </div>
@@ -174,12 +174,13 @@ export default function Terms() {
               <ul className="space-y-2 text-sm text-gray-400">
                 <li><a href="/privacy" className="hover:text-white transition">プライバシーポリシー</a></li>
                 <li><a href="/terms" className="hover:text-white transition">利用規約</a></li>
+                <li><a href="/tokushoho" className="hover:text-white transition">特定商取引法に基づく表記</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold mb-4">サポート</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="mailto:support@ai-nintei.example.com" className="hover:text-white transition">お問い合わせ</a></li>
+                <li><a href="/contact" className="hover:text-white transition">お問い合わせ</a></li>
               </ul>
             </div>
           </div>

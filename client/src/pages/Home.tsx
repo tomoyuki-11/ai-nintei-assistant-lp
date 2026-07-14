@@ -14,7 +14,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
  */
 
 export default function Home() {
-  const supportEmail = "support@ai-nintei.example.com";
+  const supportEmail = "itcaremanagement.001@gmail.com";
   const [, navigate] = useLocation();
 
   return (
@@ -584,6 +584,11 @@ export default function Home() {
                 <li>
                   <a href="/terms" className="hover:text-white transition">
                     利用規約
+                  </a>
+                </li>
+                <li>
+                  <a href="/tokushoho" className="hover:text-white transition">
+                    特定商取引法に基づく表記
                   </a>
                 </li>
                 <li>

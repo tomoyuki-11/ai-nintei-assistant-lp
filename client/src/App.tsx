@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
+import TokushoHo from "./pages/TokushoHo";
 
 
 function Router() {
@@ -17,6 +18,7 @@ function Router() {
       <Route path={"/contact"} component={Contact} />
       <Route path={"/privacy"} component={PrivacyPolicy} />
       <Route path={"/terms"} component={Terms} />
+      <Route path={"/tokushoho"} component={TokushoHo} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

@@ -6,8 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { CheckCircle2 } from "lucide-react";
 
-// TODO: 送信先メールアドレスが正式決定次第、本番アドレスに差し替える
-const CONTACT_EMAIL = "support@ai-nintei.example.com";
+const CONTACT_EMAIL = "itcaremanagement.001@gmail.com";
 
 export default function Contact() {
   const [, navigate] = useLocation();
