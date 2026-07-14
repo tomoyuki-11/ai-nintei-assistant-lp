@@ -247,7 +247,9 @@ export default function PrivacyPolicy() {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
-              <img src="/footer-logo.png" alt="AI認定調査アシスタント" className="h-8 w-auto mb-4" />
+              <div className="inline-block bg-white rounded-lg px-4 py-2.5 mb-4">
+                <img src="/footer-logo.png" alt="AI認定調査アシスタント" className="h-8 w-auto" />
+              </div>
               <p className="text-sm text-gray-400">
                 認定調査業務の効率化を実現するAIアシスタント
               </p>
