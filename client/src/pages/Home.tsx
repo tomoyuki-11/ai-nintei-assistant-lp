@@ -594,7 +594,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="inline-block bg-white rounded-lg px-4 py-2.5 mb-4">
                 <img src="/footer-logo.png" alt="AI認定調査アシスタント" className="h-8 w-auto" />
@@ -646,6 +646,11 @@ export default function Home() {
                     特定商取引法に基づく表記
                   </a>
                 </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4">サポート</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
                 <li>
                   <a href="/contact" className="hover:text-white transition">
                     お問い合わせ
