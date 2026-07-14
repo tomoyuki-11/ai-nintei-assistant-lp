@@ -13,17 +13,28 @@ export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setSubmitting(true);
+    setError("");
 
-    const subject = `【お問い合わせ】${name}様より`;
-    const body = `お名前：${name}\nメールアドレス：${email}\n\nお問い合わせ内容：\n${message}`;
-    const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailtoUrl;
-    setSubmitted(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+      if (!res.ok) throw new Error();
+      setSubmitted(true);
+    } catch {
+      setError("送信に失敗しました。しばらくしてから再度お試しいただくか、直接メールにてご連絡ください。");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -35,8 +46,7 @@ export default function Contact() {
             onClick={() => navigate("/")}
             className="flex items-center gap-3 hover:opacity-80 transition"
           >
-            <img src="/logo.png" alt="AI認定調査アシスタント" className="h-10 w-auto" />
-            <span className="hidden sm:inline text-lg font-bold text-gray-900">AI認定調査アシスタント</span>
+            <img src="/logo-full.png" alt="AI認定調査アシスタント" className="h-10 w-auto" />
           </button>
           <Button variant="outline" onClick={() => navigate("/")} className="text-sm">
             ホームに戻る
@@ -57,18 +67,19 @@ export default function Contact() {
           {submitted ? (
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-8 text-center">
               <CheckCircle2 className="w-12 h-12 text-green-500 mx-auto mb-4" />
-              <h2 className="text-xl font-bold text-gray-900 mb-2">メールソフトを起動しました</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-2">お問い合わせを受け付けました</h2>
               <p className="text-gray-700">
-                起動しない場合は、お手数ですが
-                <a href={`mailto:${CONTACT_EMAIL}`} className="text-blue-600 font-bold hover:underline">
-                  {CONTACT_EMAIL}
-                </a>
-                まで直接ご連絡ください。
+                ご入力いただいたメールアドレス宛にご返信します。通常3営業日以内にご返答します。
               </p>
               <Button
                 variant="outline"
                 className="mt-6"
-                onClick={() => setSubmitted(false)}
+                onClick={() => {
+                  setName("");
+                  setEmail("");
+                  setMessage("");
+                  setSubmitted(false);
+                }}
               >
                 フォームに戻る
               </Button>
@@ -110,16 +121,25 @@ export default function Contact() {
                 />
               </div>
 
+              {error && (
+                <p className="text-sm text-red-600">
+                  {error}
+                  （
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="underline font-bold">
+                    {CONTACT_EMAIL}
+                  </a>
+                  ）
+                </p>
+              )}
+
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition"
+                disabled={submitting}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition disabled:opacity-50"
               >
-                送信する
+                {submitting ? "送信中..." : "送信する"}
               </Button>
-              <p className="text-xs text-gray-400 text-center">
-                送信すると、お使いのメールソフトが起動します。
-              </p>
             </form>
           )}
         </div>

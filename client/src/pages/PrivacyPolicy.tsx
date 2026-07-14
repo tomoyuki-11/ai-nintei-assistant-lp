@@ -16,8 +16,7 @@ export default function PrivacyPolicy() {
             onClick={() => navigate("/")}
             className="flex items-center gap-3 hover:opacity-80 transition"
           >
-            <img src="/logo.png" alt="AI認定調査アシスタント" className="h-10 w-auto" />
-            <span className="hidden sm:inline text-lg font-bold text-gray-900">AI認定調査アシスタント</span>
+            <img src="/logo-full.png" alt="AI認定調査アシスタント" className="h-10 w-auto" />
           </button>
           <Button
             variant="outline"

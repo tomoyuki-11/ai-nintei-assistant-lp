@@ -26,8 +26,7 @@ export default function Home() {
       <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="AI認定調査アシスタント" className="h-10 w-auto" />
-            <span className="hidden sm:inline text-lg font-bold text-gray-900">AI認定調査アシスタント</span>
+            <img src="/logo-full.png" alt="AI認定調査アシスタント" className="h-10 w-auto" />
           </div>
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-sm text-gray-600 hover:text-blue-600 transition">
@@ -46,11 +45,17 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-blue-100 py-12 md:py-24">
         <div className="container">
+          {/* Section Title */}
+          <div className="text-center mb-10 md:mb-14">
+            <img src="/logo-stacked.png" alt="AI認定調査アシスタント" className="h-24 md:h-32 w-auto mx-auto mb-3" />
+            <p className="text-base md:text-lg text-gray-600">認定調査業務の効率化を実現するAIアシスタント</p>
+          </div>
+
           {/* Mobile: Image First */}
           <div className="md:hidden mb-8">
             <div className="relative w-full rounded-lg overflow-hidden shadow-lg">
               <img
-                src="/manus-storage/nintei-assessment-flow_c12d30e3.png"
+                src="/lp_nintei_image.jpg"
                 alt="介護認定調査の流れ"
                 className="w-full h-auto object-contain"
               />
@@ -98,7 +103,7 @@ export default function Home() {
             {/* Right: Visual */}
             <div className="relative w-full rounded-lg overflow-hidden shadow-2xl">
               <img
-                src="/manus-storage/nintei-assessment-flow_c12d30e3.png"
+                src="/lp_nintei_image.jpg"
                 alt="介護認定調査の流れ"
                 className="w-full h-auto object-contain"
               />
