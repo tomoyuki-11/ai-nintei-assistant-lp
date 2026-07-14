@@ -534,32 +534,12 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
               <img src="/logo.png" alt="AI認定調査アシスタント" className="h-8 w-auto mb-4" />
               <p className="text-sm text-gray-400">
                 介護現場の業務効率化を実現するAIアシスタント
               </p>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">製品</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>
-                  <a href="#" className="hover:text-white transition">
-                    機能
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition">
-                    料金
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition">
-                    デモ
-                  </a>
-                </li>
-              </ul>
             </div>
             <div>
               <h4 className="font-bold mb-4">サービス</h4>
