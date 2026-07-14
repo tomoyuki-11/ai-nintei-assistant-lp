@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Check, Mic, Zap, FileText, Shield, Lock } from "lucide-react";
+import { Check, Mic, Zap, FileText, Shield, Lock, Menu, X } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 /**
@@ -19,6 +19,7 @@ const signupUrl = (plan: "trial" | "monthly" | "metered") => `${SIGNUP_BASE_URL}
 export default function Home() {
   const supportEmail = "itcaremanagement.001@gmail.com";
   const [, navigate] = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-white">
@@ -41,8 +42,64 @@ export default function Home() {
             <a href="#faq" className="text-sm text-gray-600 hover:text-blue-600 transition">
               FAQ
             </a>
+            <button
+              onClick={() => navigate("/contact")}
+              className="text-sm text-gray-600 hover:text-blue-600 transition"
+            >
+              お問い合わせ
+            </button>
           </div>
+          <button
+            className="md:hidden text-gray-700"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            aria-label="メニューを開く"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-gray-200 bg-white">
+            <div className="container flex flex-col py-2">
+              <a
+                href="#features"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-3 text-sm text-gray-600 hover:text-blue-600 transition border-b border-gray-100"
+              >
+                機能
+              </a>
+              <a
+                href="#pricing"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-3 text-sm text-gray-600 hover:text-blue-600 transition border-b border-gray-100"
+              >
+                料金
+              </a>
+              <a
+                href="#security"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-3 text-sm text-gray-600 hover:text-blue-600 transition border-b border-gray-100"
+              >
+                セキュリティ
+              </a>
+              <a
+                href="#faq"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-3 text-sm text-gray-600 hover:text-blue-600 transition border-b border-gray-100"
+              >
+                FAQ
+              </a>
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  navigate("/contact");
+                }}
+                className="py-3 text-sm text-left text-gray-600 hover:text-blue-600 transition"
+              >
+                お問い合わせ
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
