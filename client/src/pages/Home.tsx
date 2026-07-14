@@ -13,6 +13,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
  * - 業務フローの可視化と個人情報保護の強調
  */
 
+const SIGNUP_BASE_URL = "https://ai-nintei-assistant.com/individual/register";
+const signupUrl = (plan: "trial" | "monthly" | "metered") => `${SIGNUP_BASE_URL}?plan=${plan}`;
+
 export default function Home() {
   const supportEmail = "itcaremanagement.001@gmail.com";
   const [, navigate] = useLocation();
@@ -76,7 +79,7 @@ export default function Home() {
                   size="lg"
                   className="bg-green-500 hover:bg-green-600 text-white font-bold text-lg px-8 py-6 rounded-lg transition-all hover:scale-105"
                   onClick={() => {
-                    alert("無料トライアルの申し込みページへ移動します");
+                    window.open(signupUrl("trial"), "_blank", "noopener,noreferrer");
                   }}
                 >
                   無料で試してみる
@@ -122,7 +125,7 @@ export default function Home() {
                 size="lg"
                 className="bg-green-500 hover:bg-green-600 text-white font-bold text-base px-6 py-5 rounded-lg transition-all hover:scale-105 w-full"
                 onClick={() => {
-                  alert("無料トライアルの申し込みページへ移動します");
+                  window.open(signupUrl("trial"), "_blank", "noopener,noreferrer");
                 }}
               >
                 無料で試してみる
@@ -327,7 +330,7 @@ export default function Home() {
                     size="lg"
                     className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition"
                     onClick={() => {
-                      alert("無料トライアルの申し込みページへ移動します");
+                      window.open(signupUrl("trial"), "_blank", "noopener,noreferrer");
                     }}
                   >
                     無料で始める
@@ -366,7 +369,7 @@ export default function Home() {
                     size="lg"
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition"
                     onClick={() => {
-                      alert("月額プランの申し込みページへ移動します");
+                      window.open(signupUrl("monthly"), "_blank", "noopener,noreferrer");
                     }}
                   >
                     月額プランに申し込む
@@ -403,7 +406,7 @@ export default function Home() {
                     variant="outline"
                     className="w-full border-2 border-gray-700 text-gray-700 hover:bg-gray-100 font-bold py-3 rounded-lg transition"
                     onClick={() => {
-                      alert("クレジット購入ページへ移動します");
+                      window.open(signupUrl("metered"), "_blank", "noopener,noreferrer");
                     }}
                   >
                     クレジットを購入する
@@ -506,7 +509,7 @@ export default function Home() {
               size="lg"
               className="bg-green-500 hover:bg-green-600 text-white font-bold text-lg px-8 py-6 rounded-lg transition-all hover:scale-105"
               onClick={() => {
-                alert("無料トライアルの申し込みページへ移動します");
+                window.open(signupUrl("trial"), "_blank", "noopener,noreferrer");
               }}
             >
               無料で試してみる
