@@ -479,7 +479,7 @@ export default function Home() {
                   ),
                 },
               ].map((faq) => (
-                <AccordionItem key={faq.id} value={faq.id} className="border border-gray-200 rounded-lg px-6 py-4">
+                <AccordionItem key={faq.id} value={faq.id} className="border border-gray-200 rounded-lg px-6 py-4 last:border-b!">
                   <AccordionTrigger className="hover:text-blue-600 transition">
                     <span className="text-left font-bold text-gray-900">{faq.q}</span>
                   </AccordionTrigger>
