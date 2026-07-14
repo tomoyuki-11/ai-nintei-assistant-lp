@@ -539,9 +539,9 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
-              <img src="/logo.png" alt="AI認定調査アシスタント" className="h-8 w-auto mb-4" />
+              <img src="/footer-logo.png" alt="AI認定調査アシスタント" className="h-8 w-auto mb-4" />
               <p className="text-sm text-gray-400">
-                介護現場の業務効率化を実現するAIアシスタント
+                認定調査業務の効率化を実現するAIアシスタント
               </p>
             </div>
             <div>
