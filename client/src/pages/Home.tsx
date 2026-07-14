@@ -32,6 +32,9 @@ export default function Home() {
             <a href="#features" className="text-sm text-gray-600 hover:text-blue-600 transition">
               機能
             </a>
+            <a href="#pricing" className="text-sm text-gray-600 hover:text-blue-600 transition">
+              料金
+            </a>
             <a href="#security" className="text-sm text-gray-600 hover:text-blue-600 transition">
               セキュリティ
             </a>
@@ -547,6 +550,11 @@ export default function Home() {
                 <li>
                   <a href="/#features" className="hover:text-white transition">
                     機能
+                  </a>
+                </li>
+                <li>
+                  <a href="/#security" className="hover:text-white transition">
+                    セキュリティ
                   </a>
                 </li>
                 <li>
