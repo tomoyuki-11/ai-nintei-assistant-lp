@@ -2,8 +2,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertCircle, Home } from "lucide-react";
 import { useLocation } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function NotFound() {
+  useSEO({
+    title: "ページが見つかりません｜AI認定調査アシスタント",
+    description: "お探しのページが見つかりませんでした。",
+    path: "/404",
+    noindex: true,
+  });
+
   const [, setLocation] = useLocation();
 
   const handleGoHome = () => {

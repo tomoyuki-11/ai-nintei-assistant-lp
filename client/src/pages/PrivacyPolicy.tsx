@@ -1,10 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 
 /**
  * AI認定調査アシスタント プライバシーポリシーページ
  */
 export default function PrivacyPolicy() {
+  useSEO({
+    title: "プライバシーポリシー｜AI認定調査アシスタント",
+    description: "AI認定調査アシスタントにおける個人情報の収集・利用・管理方針について説明します。",
+    path: "/privacy",
+  });
+
   const [, navigate] = useLocation();
 
   return (

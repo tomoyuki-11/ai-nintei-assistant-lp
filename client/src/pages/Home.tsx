@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Check, Mic, Zap, FileText, Shield, Lock, Menu, X } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useSEO } from "@/hooks/useSEO";
 
 /**
  * AI認定調査アシスタント ランディングページ
- * 
+ *
  * デザイン戦略：信頼と効率の融合
  * - 白と青を基調とした清潔感
  * - 40〜60代ユーザーを想定した大きな文字と高いコントラスト
@@ -16,10 +17,69 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const SIGNUP_BASE_URL = "https://ai-nintei-assistant.com/individual/register";
 const signupUrl = (plan: "trial" | "monthly" | "metered") => `${SIGNUP_BASE_URL}?plan=${plan}`;
 
+const supportEmail = "itcaremanagement.001@gmail.com";
+
+const FAQ_ITEMS = [
+  {
+    id: "q1",
+    q: "録音した音声データはどう扱われますか？",
+    a: "音声データや文字起こし内容がAIの学習に使用されることはありません。文字起こし・整形処理のためだけに使用され、Excelファイルをダウンロード後5日で自動削除されます。",
+  },
+  {
+    id: "q2",
+    q: "スマホとパソコン、両方必要ですか？",
+    a: "いいえ、スマートフォン1台で録音から整形結果の確認、Excelダウンロードまで完結します。もちろんパソコンからのご利用も可能です。ブラウザで動作するWebアプリのため、iOS・Androidどちらのスマートフォンでもインストール不要でお使いいただけます（App Store・Google Playのネイティブアプリは今後の開発を予定しています）。",
+  },
+  {
+    id: "q3",
+    q: "市区町村ごとの様式に対応していますか？",
+    a: "認定調査票の基本項目に沿ったExcelファイルとして出力されます。画面上でも整形結果を確認・コピーできるため、各市区町村の指定様式への転記にもご利用いただけます。",
+  },
+  {
+    id: "q4",
+    q: "導入に特別な機器は必要ですか？",
+    a: "いいえ。スマートフォンまたはパソコンとインターネット環境があれば、ブラウザからそのままご利用いただけます。アプリのインストールや特別なハードウェアは不要です。",
+  },
+  {
+    id: "q5",
+    q: "複数の調査員で利用できますか？",
+    a: "現在は個人でのご利用に対応しています。法人・複数名でのご利用（管理者ダッシュボードでの一元管理など）は現在準備中です。リリース時期は追ってご案内します。",
+  },
+  {
+    id: "q6",
+    q: "サポートについて",
+    a: `ご不明な点やお困りのことがあれば、以下のメールアドレスまでお気軽にお問い合わせください。${supportEmail}`,
+  },
+];
+
 export default function Home() {
-  const supportEmail = "itcaremanagement.001@gmail.com";
   const [, navigate] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useSEO({
+    title: "AI認定調査アシスタント｜要介護認定調査の特記事項をAIが自動作成",
+    description:
+      "介護保険の要介護認定調査における特記事項作成をAIが自動化。録音するだけで文字起こしから調査項目に沿った記録作成まで完結し、認定調査員・ケアマネジャーの訪問調査業務を約7割軽減します。",
+    path: "/",
+  });
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: FAQ_ITEMS.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: { "@type": "Answer", text: faq.a },
+      })),
+    });
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -500,56 +560,27 @@ export default function Home() {
 
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
-              {[
-                {
-                  id: "q1",
-                  q: "録音した音声データはどう扱われますか？",
-                  a: "音声データや文字起こし内容がAIの学習に使用されることはありません。文字起こし・整形処理のためだけに使用され、Excelファイルをダウンロード後5日で自動削除されます。",
-                },
-                {
-                  id: "q2",
-                  q: "スマホとパソコン、両方必要ですか？",
-                  a: "いいえ、スマートフォン1台で録音から整形結果の確認、Excelダウンロードまで完結します。もちろんパソコンからのご利用も可能です。ブラウザで動作するWebアプリのため、iOS・Androidどちらのスマートフォンでもインストール不要でお使いいただけます（App Store・Google Playのネイティブアプリは今後の開発を予定しています）。",
-                },
-                {
-                  id: "q3",
-                  q: "市区町村ごとの様式に対応していますか？",
-                  a: "認定調査票の基本項目に沿ったExcelファイルとして出力されます。画面上でも整形結果を確認・コピーできるため、各市区町村の指定様式への転記にもご利用いただけます。",
-                },
-                {
-                  id: "q4",
-                  q: "導入に特別な機器は必要ですか？",
-                  a: "いいえ。スマートフォンまたはパソコンとインターネット環境があれば、ブラウザからそのままご利用いただけます。アプリのインストールや特別なハードウェアは不要です。",
-                },
-                {
-                  id: "q5",
-                  q: "複数の調査員で利用できますか？",
-                  a: "現在は個人でのご利用に対応しています。法人・複数名でのご利用（管理者ダッシュボードでの一元管理など）は現在準備中です。リリース時期は追ってご案内します。",
-                },
-                {
-                  id: "q6",
-                  q: "サポートについて",
-                  a: (
-                    <div>
-                      <p className="mb-3">
-                        ご不明な点やお困りのことがあれば、以下のメールアドレスまでお気軽にお問い合わせください。
-                      </p>
-                      <a
-                        href={`mailto:${supportEmail}`}
-                        className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-bold"
-                      >
-                        {supportEmail}
-                      </a>
-                    </div>
-                  ),
-                },
-              ].map((faq) => (
+              {FAQ_ITEMS.map((faq) => (
                 <AccordionItem key={faq.id} value={faq.id} className="border border-gray-200 rounded-lg px-6 py-4 last:border-b!">
                   <AccordionTrigger className="hover:text-blue-600 transition">
                     <span className="text-left font-bold text-gray-900">{faq.q}</span>
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-700 mt-4">
-                    {typeof faq.a === "string" ? faq.a : faq.a}
+                    {faq.id === "q6" ? (
+                      <div>
+                        <p className="mb-3">
+                          ご不明な点やお困りのことがあれば、以下のメールアドレスまでお気軽にお問い合わせください。
+                        </p>
+                        <a
+                          href={`mailto:${supportEmail}`}
+                          className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-bold"
+                        >
+                          {supportEmail}
+                        </a>
+                      </div>
+                    ) : (
+                      faq.a
+                    )}
                   </AccordionContent>
                 </AccordionItem>
               ))}

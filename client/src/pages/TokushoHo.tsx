@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 
 const ROWS: { term: string; desc: React.ReactNode }[] = [
   { term: "販売事業者", desc: "細見 公人" },
@@ -50,6 +51,12 @@ const ROWS: { term: string; desc: React.ReactNode }[] = [
 ];
 
 export default function TokushoHo() {
+  useSEO({
+    title: "特定商取引法に基づく表記｜AI認定調査アシスタント",
+    description: "AI認定調査アシスタントの特定商取引法に基づく表記です。販売価格、お支払い方法、返品・キャンセルについて掲載しています。",
+    path: "/tokushoho",
+  });
+
   const [, navigate] = useLocation();
 
   return (

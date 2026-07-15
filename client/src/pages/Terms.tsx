@@ -1,10 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 
 /**
  * AI認定調査アシスタント 利用規約ページ
  */
 export default function Terms() {
+  useSEO({
+    title: "利用規約｜AI認定調査アシスタント",
+    description: "AI認定調査アシスタントのご利用にあたっての利用規約です。料金プラン、禁止事項、免責事項などを掲載しています。",
+    path: "/terms",
+  });
+
   const [, navigate] = useLocation();
 
   return (

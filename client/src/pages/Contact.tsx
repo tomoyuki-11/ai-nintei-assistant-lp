@@ -5,10 +5,17 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { CheckCircle2 } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 const CONTACT_EMAIL = "itcaremanagement.001@gmail.com";
 
 export default function Contact() {
+  useSEO({
+    title: "お問い合わせ｜AI認定調査アシスタント",
+    description: "AI認定調査アシスタントに関するご質問・ご相談はこちらからお問い合わせください。認定調査員・ケアマネジャー向けのAI業務効率化サービスです。",
+    path: "/contact",
+  });
+
   const [, navigate] = useLocation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
