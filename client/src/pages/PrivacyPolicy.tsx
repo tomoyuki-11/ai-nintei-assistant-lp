@@ -150,7 +150,7 @@ export default function PrivacyPolicy() {
                 調査対象者の個人情報は適切に保護されており、AIモデルの学習・訓練に利用されることはありません。
               </p>
               <p className="mt-4">
-                送信先であるOpenAI・Anthropicの各社においても、APIを通じて送信されたデータをモデルの学習に利用しないことが公式に明記されています（詳細は「8. AIの学習への利用について」をご参照ください）。また、通信はすべてHTTPS（SSL/TLS暗号化）で保護され、記録データはExcelダウンロード後5日で自動的に削除されます。
+                送信先であるOpenAI・Anthropicの各社においても、APIを通じて送信されたデータをモデルの学習に利用しないことが公式に明記されています（詳細は「8. AIの学習への利用について」をご参照ください）。また、通信はすべてHTTPS（SSL/TLS暗号化）で保護され、記録データは整形完了後5日で自動的に削除されます。
               </p>
               <p className="text-sm text-gray-500 mt-4">
                 ※ 本サービスをご利用の調査員は、調査対象者ご本人またはご家族に対して本サービスの利用（録音・AIによる処理を含む）について説明し、同意を得た上でご使用ください。
@@ -172,8 +172,7 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">7. データの保持期間と削除</h2>
               <ul className="list-disc list-inside space-y-2">
-                <li><strong>調査記録</strong>：ユーザーが手動で削除するまで保管されます。履歴画面からいつでも削除できます。</li>
-                <li><strong>Excelダウンロード済みの記録</strong>：ダウンロードから5日が経過した時点で自動的に削除されます。</li>
+                <li><strong>調査記録</strong>：AIによる整形完了から5日が経過した時点で自動的に削除されます。それより前に削除したい場合は、履歴画面からいつでも手動で削除できます。</li>
                 <li><strong>アカウントの削除</strong>：アカウントの削除をご希望の場合は、お問い合わせ先までご連絡ください。削除後はデータを復元できません。</li>
               </ul>
             </section>
