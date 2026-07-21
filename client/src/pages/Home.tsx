@@ -309,7 +309,7 @@ export default function Home() {
           </div>
           <div className="flex justify-center">
             <div className="rounded-lg overflow-hidden shadow-xl bg-black">
-              <video className="h-auto max-h-[70vh] w-auto mx-auto" controls preload="metadata" playsInline>
+              <video className="h-auto max-h-[70vh] w-auto mx-auto" controls preload="metadata" playsInline poster="/video-poster.jpg">
                 <source src="/805990677.991632.mp4" type="video/mp4" />
               </video>
             </div>

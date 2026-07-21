@@ -166,7 +166,7 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">6. データの保管・セキュリティ</h2>
               <ul className="list-disc list-inside space-y-2">
-                <li>データはAWS（Amazon Web Services）上のサーバーで管理しています</li>
+                <li>データはAWS（Amazon Web Services）の東京リージョン（国内）上のサーバーで管理しています</li>
                 <li>通信はすべてHTTPS（SSL/TLS暗号化）で行われます</li>
                 <li>パスワードはハッシュ化して保管し、元のパスワードは保持しません</li>
                 <li>ログイン状態は認証トークン（JWT）としてお使いのデバイスのlocalStorageに保存されます</li>
