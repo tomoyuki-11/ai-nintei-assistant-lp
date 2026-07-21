@@ -296,6 +296,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Video Section */}
+      <section className="py-16 md:py-24 bg-blue-50">
+        <div className="container">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              動画で見る、AI認定調査アシスタント
+            </h2>
+            <p className="text-lg text-gray-600">
+              録音から特記事項の作成まで、実際の使い方をご覧いただけます
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <div className="rounded-lg overflow-hidden shadow-xl bg-black">
+              <video className="h-auto max-h-[70vh] w-auto mx-auto" controls preload="metadata" playsInline>
+                <source src="/805990677.991632.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pain Points Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container">
