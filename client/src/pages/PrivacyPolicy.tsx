@@ -39,7 +39,7 @@ export default function PrivacyPolicy() {
       <main className="py-16 md:py-24">
         <div className="container max-w-3xl">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">プライバシーポリシー</h1>
-          <p className="text-sm text-gray-500 mb-8">制定日：2026年7月14日</p>
+          <p className="text-sm text-gray-500 mb-8">制定日：2026年7月14日／最終改定日：2026年7月21日</p>
 
           <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
             <p>
@@ -99,6 +99,12 @@ export default function PrivacyPolicy() {
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">4. 外部サービスへの情報送信</h2>
               <p>
                 本サービスは、サービスの提供にあたり以下の外部サービスへデータを送信します。本サービスをご利用いただくことで、以下の各社のプライバシーポリシーにも同意したものとみなします。
+              </p>
+              <p className="font-bold text-blue-600 mt-4">
+                外国にある第三者への提供（越境移転）について
+              </p>
+              <p className="mt-2">
+                OpenAI・Anthropicはいずれも米国に所在する事業者であり、送信されたデータは米国に所在するサーバーで処理されます。これは個人情報保護法上の「外国にある第三者への個人データの提供」に該当します。両社とも、標準契約条項（SCC）等に基づくデータ処理契約（DPA）を締結し、適切な安全管理措置を講じた上でデータを取り扱っています。各社の体制の詳細は、下記のプライバシーポリシーをご確認ください。
               </p>
 
               <h3 className="text-lg font-bold text-gray-900 mt-6 mb-2">OpenAI（音声文字起こし）</h3>
@@ -166,7 +172,11 @@ export default function PrivacyPolicy() {
                 <li>ログイン状態は認証トークン（JWT）としてお使いのデバイスのlocalStorageに保存されます</li>
                 <li>Google Analyticsなどのアクセス解析ツールは使用していません</li>
                 <li>認証Cookieは使用していません</li>
+                <li>運営者は、システム障害への対応など運用上やむを得ず必要な場合を除き、保存された調査記録の内容を閲覧することはありません</li>
               </ul>
+              <p className="mt-4">
+                万が一、個人データの漏えい・滅失・毀損等の事案が発生した場合には、個人情報保護法等の関係法令に基づき、個人情報保護委員会への報告および本人への通知を速やかに行います。
+              </p>
             </section>
 
             <section>
@@ -223,14 +233,14 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">11. 未成年者の利用</h2>
               <p>
-                本サービスは、18歳以上の方を対象としています。18歳未満の方がご利用になる場合は、保護者の同意を得てください。
+                本サービスは、介護保険の要介護認定調査に従事する方を対象とした業務用ツールであり、18歳以上の方のみご利用いただけます。18歳未満の方は本サービスをご利用いただけません。
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">12. 本ポリシーの変更</h2>
               <p>
-                本ポリシーの内容は、法令の改正やサービスの変更等に応じて予告なく変更する場合があります。重要な変更を行う場合は、サービス内でお知らせします。変更後も本サービスを継続してご利用いただいた場合は、変更後のポリシーに同意したものとみなします。
+                本ポリシーの内容は、法令の改正やサービスの変更等に応じて変更する場合があります。内容を変更する際は、施行日を定めた上で、施行日より前にサービス内または本ページにて告知します。変更後も本サービスを継続してご利用いただいた場合は、変更後のポリシーに同意したものとみなします。
               </p>
             </section>
 
@@ -247,7 +257,7 @@ export default function PrivacyPolicy() {
 
             <section className="mt-12 pt-8 border-t border-gray-200">
               <p className="text-sm text-gray-600">
-                制定日：2026年7月14日
+                制定日：2026年7月14日／最終改定日：2026年7月21日
               </p>
             </section>
           </div>
