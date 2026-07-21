@@ -26,14 +26,19 @@ const FAQ_ITEMS = [
     a: "はい。面談中にスマホで録音するだけで、AIが聞き取り内容を要介護認定調査票の基本調査項目に沿った文章として自動で整形します。「どう書けばいいか」を一から考える時間を減らし、内容の確認・微修正だけで特記事項の下書きが完成します。",
   },
   {
-    id: "q0b",
-    q: "ケアマネジャーですが、認定調査の聞き取りメモをエクセルにまとめるのに使えますか？",
-    a: "はい、ケアマネジャーの方にもご利用いただいています。面談中の聞き取り内容を録音・文字起こしし、認定調査票の項目に対応したExcel形式で出力できるため、手書きメモやボイスメモを清書する作業を大幅に短縮できます。",
+    id: "q0c",
+    q: "面談の聞き取り内容を文字起こしできるアプリを探しています。このアプリで対応できますか？",
+    a: "いいえ。一般的な文字起こしアプリと異なり、本サービスは要介護認定調査に特化しており、文字起こし結果をそのまま調査票の特記事項フォーマットへ整形するところまで自動で行います。",
   },
   {
-    id: "q0c",
-    q: "面談の聞き取り内容を文字起こしできるアプリを探しています。認定調査に対応していますか？",
-    a: "はい。一般的な文字起こしアプリと異なり、本サービスは要介護認定調査に特化しており、文字起こし結果をそのまま調査票の特記事項フォーマットへ整形するところまで自動で行います。",
+    id: "q0d",
+    q: "手書きのメモは不要になりますか?",
+    a: "録音と文字起こしが基本のため、従来のような**一言一句を書き取るメモは不要**になります。ただし、表情・動作・住環境など音声に残らない観察情報は、メモに簡単に入力しておくことで、特記事項の精度が増します。「録音+最小限のメモ」というスタイルで、調査中は対象者との対話に集中できます。",
+  },
+  {
+    id: "q0e",
+    q: "特記事項をExcelに出力できますか?",
+    a: "はい。生成した特記事項は、Excel（xlsx）でダウンロードできます。認定調査項目順で出力できるため、必要に応じて転記し、提出書類の作成に進めます。",
   },
   {
     id: "q1",
@@ -67,6 +72,14 @@ const FAQ_ITEMS = [
   },
 ];
 
+/** Renders `**bold**` segments in FAQ answers as <strong>, leaving the rest as plain text. */
+function formatFaqAnswer(text: string) {
+  const parts = text.split(/\*\*(.+?)\*\*/g);
+  return parts.map((part, i) =>
+    i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+  );
+}
+
 export default function Home() {
   const [, navigate] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -87,7 +100,7 @@ export default function Home() {
       mainEntity: FAQ_ITEMS.map((faq) => ({
         "@type": "Question",
         name: faq.q,
-        acceptedAnswer: { "@type": "Answer", text: faq.a },
+        acceptedAnswer: { "@type": "Answer", text: faq.a.replace(/\*\*/g, "") },
       })),
     });
     document.head.appendChild(script);
@@ -594,7 +607,7 @@ export default function Home() {
                         </a>
                       </div>
                     ) : (
-                      faq.a
+                      formatFaqAnswer(faq.a)
                     )}
                   </AccordionContent>
                 </AccordionItem>
