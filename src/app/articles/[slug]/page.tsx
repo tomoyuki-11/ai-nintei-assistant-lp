@@ -17,7 +17,7 @@ export async function generateMetadata({
   const article = getArticleBySlug(slug);
 
   return buildMetadata({
-    title: article ? `${article.title}｜AI認定調査アシスタント` : "記事が見つかりません｜AI認定調査アシスタント",
+    title: article ? `${article.metaTitle ?? article.title}｜AI認定調査アシスタント` : "記事が見つかりません｜AI認定調査アシスタント",
     description: article?.description ?? "",
     path: `/articles/${slug}`,
     noindex: !article,

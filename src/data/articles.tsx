@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 export interface Article {
   slug: string;
   title: string;
+  /** Shorter title for <title>/OGP when `title` would be truncated in SERPs. Falls back to `title`. */
+  metaTitle?: string;
   description: string;
   publishedDate: string;
   excerpt: string;
@@ -13,6 +15,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "tokkijikou-excel-5fun",
     title: "認定調査の聞き取りメモから特記事項を5分でExcelにする方法",
+    metaTitle: "特記事項を5分でExcelにする方法",
     description:
       "認定調査後、聞き取りメモをExcelの特記事項にまとめ直すのに1時間以上かかっていませんか？録音するだけでAIが文字起こし・整形までを行う方法を紹介します。",
     publishedDate: "2026-07-16",
@@ -81,6 +84,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "tokkijikou-kakikata-ai",
     title: "【ケアマネ・認定調査員必見】特記事項の書き方に迷わないためのAI活用術",
+    metaTitle: "特記事項の書き方に迷わないAI活用術",
     description:
       "認定調査の特記事項、どう書けばいいか毎回迷っていませんか？調査票の項目に沿った文章をAIに自動作成させる方法を、現場の悩みに寄り添って解説します。",
     publishedDate: "2026-07-16",
