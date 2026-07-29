@@ -51,7 +51,7 @@ const ORGANIZATION_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: SITE_NAME,
-  url: `${SITE_URL}/`,
+  url: SITE_URL,
   logo: `${SITE_URL}/logo-full.png`,
   description: "介護保険の要介護認定調査における特記事項作成をAIが自動化するサービス",
   email: "itcaremanagement.001@gmail.com",
@@ -65,7 +65,7 @@ const SOFTWARE_APPLICATION_JSON_LD = {
   operatingSystem: "Web",
   description:
     "音声録音・文字起こしテキストをAIが要介護認定調査票フォーマットに自動整形するWebアプリ。認定調査員・ケアマネジャーの業務負担を軽減します。",
-  url: `${SITE_URL}/`,
+  url: SITE_URL,
   offers: [
     { "@type": "Offer", name: "トライアル", price: "0", priceCurrency: "JPY" },
     { "@type": "Offer", name: "月額プラン", price: "2980", priceCurrency: "JPY" },
