@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 /**
  * AI認定調査アシスタント 利用規約ページ
@@ -18,7 +19,7 @@ export default function Terms() {
             onClick={() => router.push("/")}
             className="flex items-center gap-3 hover:opacity-80 transition"
           >
-            <img src="/logo-full.png" alt="AI認定調査アシスタント" className="h-10 w-auto" />
+            <Image src="/logo-full.png" alt="AI認定調査アシスタント" width={1115} height={212} className="h-10 w-auto" />
           </button>
           <Button
             variant="outline"
@@ -158,7 +159,7 @@ export default function Terms() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="inline-block bg-white rounded-lg px-4 py-2.5 mb-4">
-                <img src="/footer-logo.png" alt="AI認定調査アシスタント" className="h-8 w-auto" />
+                <Image src="/footer-logo.png" alt="AI認定調査アシスタント" width={1109} height={204} className="h-8 w-auto" />
               </div>
               <p className="text-sm text-gray-400">
                 認定調査業務の効率化を実現するAIアシスタント

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Check, Mic, Zap, FileText, Shield, Lock, Menu, X } from "lucide-react";
 import {
@@ -43,9 +44,11 @@ export default function Home() {
       <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-3">
-            <img
+            <Image
               src="/logo-full.png"
               alt="AI認定調査アシスタント"
+              width={1115}
+              height={212}
               className="h-10 w-auto"
             />
           </div>
@@ -143,9 +146,12 @@ export default function Home() {
         <div className="container">
           {/* Section Title */}
           <div className="text-center mb-10 md:mb-14">
-            <img
+            <Image
               src="/logo-stacked.png"
               alt="AI認定調査アシスタント"
+              width={419}
+              height={269}
+              priority
               className="h-24 md:h-32 w-auto mx-auto mb-3"
             />
             <p className="text-base md:text-lg text-gray-600">
@@ -156,9 +162,13 @@ export default function Home() {
           {/* Mobile: Image First */}
           <div className="md:hidden mb-8">
             <div className="relative w-full rounded-lg overflow-hidden shadow-lg">
-              <img
+              <Image
                 src="/lp_nintei_image.jpg"
                 alt="介護認定調査の流れ"
+                width={1672}
+                height={941}
+                priority
+                sizes="100vw"
                 className="w-full h-auto object-contain"
               />
             </div>
@@ -210,9 +220,13 @@ export default function Home() {
 
             {/* Right: Visual */}
             <div className="relative w-full rounded-lg overflow-hidden shadow-2xl">
-              <img
+              <Image
                 src="/lp_nintei_image.jpg"
                 alt="介護認定調査の流れ"
+                width={1672}
+                height={941}
+                priority
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="w-full h-auto object-contain"
               />
             </div>
@@ -710,9 +724,11 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="inline-block bg-white rounded-lg px-4 py-2.5 mb-4">
-                <img
+                <Image
                   src="/footer-logo.png"
                   alt="AI認定調査アシスタント"
+                  width={1109}
+                  height={204}
                   className="h-8 w-auto"
                 />
               </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -48,7 +49,7 @@ export default function Contact() {
             onClick={() => router.push("/")}
             className="flex items-center gap-3 hover:opacity-80 transition"
           >
-            <img src="/logo-full.png" alt="AI認定調査アシスタント" className="h-10 w-auto" />
+            <Image src="/logo-full.png" alt="AI認定調査アシスタント" width={1115} height={212} className="h-10 w-auto" />
           </button>
           <Button variant="outline" onClick={() => router.push("/")} className="text-sm">
             ホームに戻る
