@@ -413,7 +413,7 @@ export default function Home() {
             ].map((stat, idx) => (
               <div
                 key={idx}
-                className="bg-white/10 backdrop-blur p-6 rounded-lg"
+                className="bg-white/10 backdrop-blur p-6 rounded-lg flex flex-col justify-center"
               >
                 {stat.label && (
                   <p className="text-sm opacity-80 mb-2">{stat.label}</p>
