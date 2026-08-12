@@ -407,16 +407,23 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-4xl mx-auto">
             {[
-              { label: "作業時間削減", value: "約70%" },
-              { label: "残業削減", value: "約5時間/週" },
-              { label: "ヒューマンエラー削減", value: "約90%" },
+              { label: "訪問後の特記作成時間", value: "約70%削減", note: "※開発者実測値" },
+              { label: null, value: "記録業務の残業を削減" },
+              { label: null, value: "聞き漏れ・転記ミスを大幅削減" },
             ].map((stat, idx) => (
               <div
                 key={idx}
                 className="bg-white/10 backdrop-blur p-6 rounded-lg"
               >
-                <p className="text-sm opacity-80 mb-2">{stat.label}</p>
-                <p className="text-3xl font-bold">{stat.value}</p>
+                {stat.label && (
+                  <p className="text-sm opacity-80 mb-2">{stat.label}</p>
+                )}
+                <p className={stat.label ? "text-3xl font-bold" : "text-xl font-bold"}>
+                  {stat.value}
+                </p>
+                {stat.note && (
+                  <p className="text-xs opacity-70 mt-2">{stat.note}</p>
+                )}
               </div>
             ))}
           </div>
