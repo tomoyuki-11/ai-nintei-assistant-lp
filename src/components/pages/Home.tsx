@@ -412,7 +412,7 @@ export default function Home() {
                 <AccordionItem
                   key={item.id}
                   value={item.id}
-                  className="border border-gray-200 rounded-lg px-6 py-4 last:border-b!"
+                  className="border border-gray-200 rounded-lg px-6 last:border-b!"
                 >
                   <AccordionTrigger className="hover:text-blue-600 transition">
                     <span className="text-left font-bold text-gray-900">
@@ -708,7 +708,7 @@ export default function Home() {
                 <AccordionItem
                   key={faq.id}
                   value={faq.id}
-                  className="border border-gray-200 rounded-lg px-6 py-4 last:border-b!"
+                  className="border border-gray-200 rounded-lg px-6 last:border-b!"
                 >
                   <AccordionTrigger className="hover:text-blue-600 transition">
                     <span className="text-left font-bold text-gray-900">
