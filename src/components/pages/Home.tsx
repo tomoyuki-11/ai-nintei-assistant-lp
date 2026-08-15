@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Check, Mic, Zap, FileText, Shield, Lock, Menu, X } from "lucide-react";
+import { Check, Mic, Zap, FileText, Shield, Lock, KeyRound, Ban, Menu, X } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -12,6 +12,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { FAQ_ITEMS, SUPPORT_EMAIL } from "@/data/faq";
+import { KNOWLEDGE_BASE_ITEMS } from "@/data/knowledgeBase";
 
 /**
  * AI認定調査アシスタント ランディングページ
@@ -393,6 +394,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Knowledge Base Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              特記事項の基礎知識
+            </h2>
+            <p className="text-lg text-gray-600">
+              特記事項の役割から書き方のコツ、AI活用の考え方までを解説します
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {KNOWLEDGE_BASE_ITEMS.map((item) => (
+                <AccordionItem
+                  key={item.id}
+                  value={item.id}
+                  className="border border-gray-200 rounded-lg px-6 py-4 last:border-b!"
+                >
+                  <AccordionTrigger className="hover:text-blue-600 transition">
+                    <span className="text-left font-bold text-gray-900">
+                      {item.question}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-700 mt-4">
+                    {item.body}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
       {/* Impact Section */}
       <section className="py-16 md:py-24 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="container text-center">
@@ -456,6 +492,18 @@ export default function Home() {
                 description:
                   "AIによる整形が完了してから5日で記録データは自動的に削除されます。長期保存されることはありません。",
               },
+              {
+                icon: KeyRound,
+                title: "通信は暗号化",
+                description:
+                  "録音データ・文字起こし内容の送受信はすべて暗号化通信（HTTPS/SSL）で行われます。",
+              },
+              {
+                icon: Ban,
+                title: "同意なき第三者提供はしない",
+                description:
+                  "ご本人の同意なく、収集した個人情報を第三者に販売・提供することはありません。",
+              },
             ].map((item, idx) => {
               const Icon = item.icon;
               return (
@@ -476,6 +524,9 @@ export default function Home() {
               );
             })}
           </div>
+          <p className="text-center text-sm text-gray-500 mt-8">
+            録音の際は、同席者にも一言ご説明のうえ同意を得てください。所属先・自治体の録音に関するルールがある場合は、そちらを優先してください。
+          </p>
         </div>
       </section>
 
