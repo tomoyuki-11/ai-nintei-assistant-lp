@@ -180,11 +180,11 @@ export default function Home() {
             {/* Left: Text Content */}
             <div className="space-y-8 animate-fade-in">
               <div>
-                <p className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
                   認定調査の特記事項、
                   <br />
                   もうAIに任せませんか？
-                </p>
+                </h1>
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
                   録音するだけ。AIが文字起こしから認定調査項目に沿った記録作成まで。
                   <br />
