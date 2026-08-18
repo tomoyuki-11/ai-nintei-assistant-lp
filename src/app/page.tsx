@@ -20,12 +20,38 @@ const FAQ_JSON_LD = {
   })),
 };
 
+const VIDEO_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "AI認定調査アシスタントの使い方",
+  description:
+    "録音から特記事項の作成まで、AI認定調査アシスタントの実際の使い方を紹介する動画です。",
+  thumbnailUrl: [
+    "https://i.ytimg.com/vi/0EQqzaEXOpg/maxresdefault.jpg",
+    "https://i.ytimg.com/vi/0EQqzaEXOpg/hqdefault.jpg",
+  ],
+  uploadDate: "2026-07-21",
+  embedUrl: "https://www.youtube.com/embed/0EQqzaEXOpg",
+  publisher: {
+    "@type": "Organization",
+    name: "AI認定調査アシスタント",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://lp.ai-nintei-assistant.com/logo-full.png",
+    },
+  },
+};
+
 export default function Page() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(VIDEO_JSON_LD) }}
       />
       <Home />
     </>
