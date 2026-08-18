@@ -5,7 +5,7 @@ import { ARTICLES } from "@/data/articles";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     {
-      url: `${SITE_URL}/`,
+      url: SITE_URL,
       lastModified: "2026-07-29",
       changeFrequency: "weekly",
       priority: 1.0,
