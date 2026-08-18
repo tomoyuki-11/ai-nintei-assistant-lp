@@ -30,7 +30,7 @@ const VIDEO_JSON_LD = {
     "https://i.ytimg.com/vi/0EQqzaEXOpg/maxresdefault.jpg",
     "https://i.ytimg.com/vi/0EQqzaEXOpg/hqdefault.jpg",
   ],
-  uploadDate: "2026-07-21",
+  uploadDate: "2026-07-21T00:00:00+09:00",
   embedUrl: "https://www.youtube.com/embed/0EQqzaEXOpg",
   publisher: {
     "@type": "Organization",
