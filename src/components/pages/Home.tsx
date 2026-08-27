@@ -406,25 +406,18 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-4">
-              {KNOWLEDGE_BASE_ITEMS.map((item) => (
-                <AccordionItem
-                  key={item.id}
-                  value={item.id}
-                  className="border border-gray-200 rounded-lg px-6 last:border-b!"
-                >
-                  <AccordionTrigger className="hover:text-blue-600 transition">
-                    <span className="text-left font-bold text-gray-900">
-                      {item.question}
-                    </span>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-700 mt-4">
-                    {item.body}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+          <div className="max-w-3xl mx-auto space-y-8">
+            {KNOWLEDGE_BASE_ITEMS.map((item) => (
+              <div
+                key={item.id}
+                className="border border-gray-200 rounded-lg px-6 py-6"
+              >
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  {item.question}
+                </h3>
+                <div className="text-gray-700">{item.body}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
