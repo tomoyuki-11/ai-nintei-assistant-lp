@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://lp.ai-nintei-assistant.com";
+export const SITE_URL = "https://ai-nintei-assistant.com";
+/** アプリ本体（登録・ログインなど）のベースURL */
+export const APP_URL = "https://app.ai-nintei-assistant.com";
 export const OG_IMAGE = `${SITE_URL}/lp_nintei_image.jpg`;
 
 interface PageSEOOptions {

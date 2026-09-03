@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Home from "@/components/pages/Home";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, SITE_URL } from "@/lib/seo";
 import { FAQ_ITEMS } from "@/data/faq";
 
 export const metadata: Metadata = buildMetadata({
@@ -37,7 +37,7 @@ const VIDEO_JSON_LD = {
     name: "AI認定調査アシスタント",
     logo: {
       "@type": "ImageObject",
-      url: "https://lp.ai-nintei-assistant.com/logo-full.png",
+      url: `${SITE_URL}/logo-full.png`,
     },
   },
 };

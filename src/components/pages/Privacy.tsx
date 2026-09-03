@@ -47,7 +47,7 @@ export default function PrivacyPolicy() {
               <p>本サービスは個人が開発・運営しています（法人・団体ではありません）。</p>
               <ul className="list-disc list-inside space-y-2 mt-4">
                 <li>運営者：細見　公人</li>
-                <li>サービスURL：https://ai-nintei-assistant.com/</li>
+                <li>サービスURL：https://app.ai-nintei-assistant.com/</li>
                 <li>お問い合わせ：itcaremanagement.001@gmail.com</li>
               </ul>
             </section>

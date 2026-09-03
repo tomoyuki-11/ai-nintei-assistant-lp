@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Providers } from "@/components/Providers";
 import "./globals.css";
+import { SITE_URL } from "@/lib/seo";
 
-const SITE_URL = "https://lp.ai-nintei-assistant.com";
 const SITE_NAME = "AI認定調査アシスタント";
 const TITLE = `${SITE_NAME}｜要介護認定調査の特記事項をAIが自動作成`;
 const DESCRIPTION =

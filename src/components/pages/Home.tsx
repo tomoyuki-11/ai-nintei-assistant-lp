@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/accordion";
 import { FAQ_ITEMS, SUPPORT_EMAIL } from "@/data/faq";
 import { KNOWLEDGE_BASE_ITEMS } from "@/data/knowledgeBase";
+import { APP_URL } from "@/lib/seo";
 
 /**
  * AI認定調査アシスタント ランディングページ
@@ -23,7 +24,7 @@ import { KNOWLEDGE_BASE_ITEMS } from "@/data/knowledgeBase";
  * - 業務フローの可視化と個人情報保護の強調
  */
 
-const SIGNUP_BASE_URL = "https://ai-nintei-assistant.com/individual/register";
+const SIGNUP_BASE_URL = `${APP_URL}/individual/register`;
 const signupUrl = (plan: "trial" | "monthly" | "metered") =>
   `${SIGNUP_BASE_URL}?plan=${plan}`;
 
