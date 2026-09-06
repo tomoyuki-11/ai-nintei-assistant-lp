@@ -12,7 +12,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { FAQ_ITEMS, SUPPORT_EMAIL } from "@/data/faq";
-import { KNOWLEDGE_BASE_ITEMS } from "@/data/knowledgeBase";
 import { APP_URL } from "@/lib/seo";
 
 /**
@@ -392,34 +391,6 @@ export default function Home() {
             <span className="font-bold">音声ファイルのアップロード</span>
             にも対応しています。
           </p>
-        </div>
-      </section>
-
-      {/* Knowledge Base Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              特記事項の基礎知識
-            </h2>
-            <p className="text-lg text-gray-600">
-              特記事項の役割から書き方のコツ、AI活用の考え方までを解説します
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto space-y-8">
-            {KNOWLEDGE_BASE_ITEMS.map((item) => (
-              <div
-                key={item.id}
-                className="border border-gray-200 rounded-lg px-6 py-6"
-              >
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  {item.question}
-                </h3>
-                <div className="text-gray-700">{item.body}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

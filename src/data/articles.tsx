@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { KNOWLEDGE_BASE_ITEMS } from "@/data/knowledgeBase";
 
 export interface Article {
   slug: string;
@@ -139,6 +140,26 @@ export const ARTICLES: Article[] = [
         <p>
           14日間・3回までクレジットカード登録不要で無料トライアルできます。特記事項の書き方に悩む時間を減らしたい方は、ぜひ一度お試しください。
         </p>
+      </>
+    ),
+  },
+  {
+    slug: "tokkijikou-kiso-chishiki",
+    title: "要介護認定調査の特記事項とは？基礎知識まとめ",
+    metaTitle: "特記事項の基礎知識まとめ",
+    description:
+      "要介護認定調査の特記事項とは何か、作成時に認定調査員が抱えやすい課題、書き方の重要なポイントから、AIをどう活用できるかまでを解説します。",
+    publishedDate: "2026-08-27",
+    excerpt:
+      "特記事項は、調査票の選択肢だけでは伝わりにくい本人の状態や生活実態を文章で補足する記述欄です。役割から書き方のコツ、AI活用の考え方までをまとめて解説します。",
+    body: (
+      <>
+        {KNOWLEDGE_BASE_ITEMS.map((item) => (
+          <div key={item.id}>
+            <h2>{item.question}</h2>
+            {item.body}
+          </div>
+        ))}
       </>
     ),
   },
