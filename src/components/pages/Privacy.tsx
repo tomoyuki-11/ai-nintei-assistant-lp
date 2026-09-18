@@ -277,7 +277,10 @@ export default function PrivacyPolicy() {
               <ul className="space-y-2 text-sm text-gray-400">
                 <li><a href="/" className="hover:text-white transition">ホーム</a></li>
                 <li><a href="/#features" className="hover:text-white transition">機能</a></li>
+                <li><a href="/#security" className="hover:text-white transition">セキュリティ</a></li>
+                <li><a href="/#pricing" className="hover:text-white transition">料金</a></li>
                 <li><a href="/#faq" className="hover:text-white transition">FAQ</a></li>
+                <li><a href="/articles" className="hover:text-white transition">お役立ちコラム</a></li>
               </ul>
             </div>
             <div>
