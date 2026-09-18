@@ -146,7 +146,7 @@ export default function Terms() {
 
             <section className="mt-12 pt-8 border-t border-gray-200">
               <p className="text-sm text-gray-600">
-                最終更新日：2026年7月14日
+                最終改定日：2026年9月18日
               </p>
             </section>
           </div>

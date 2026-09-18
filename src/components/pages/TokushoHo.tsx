@@ -94,7 +94,7 @@ export default function TokushoHo() {
             </div>
 
             <section className="mt-12 pt-8 border-t border-gray-200">
-              <p className="text-sm text-gray-600">最終更新日：2026年7月13日</p>
+              <p className="text-sm text-gray-600">最終更新日：2026年9月18日</p>
             </section>
           </div>
         </div>

@@ -35,7 +35,7 @@ export default function PrivacyPolicy() {
       <main className="py-16 md:py-24">
         <div className="container max-w-3xl">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">プライバシーポリシー</h1>
-          <p className="text-sm text-gray-500 mb-8">制定日：2026年7月14日／最終改定日：2026年9月18日</p>
+          <p className="text-sm text-gray-500 mb-8">最終改定日：2026年9月18日</p>
 
           <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
             <p>
@@ -253,7 +253,7 @@ export default function PrivacyPolicy() {
 
             <section className="mt-12 pt-8 border-t border-gray-200">
               <p className="text-sm text-gray-600">
-                制定日：2026年7月14日／最終改定日：2026年9月18日
+                最終改定日：2026年9月18日
               </p>
             </section>
           </div>
