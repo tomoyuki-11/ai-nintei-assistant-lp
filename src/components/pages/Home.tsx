@@ -459,9 +459,9 @@ export default function Home() {
               },
               {
                 icon: KeyRound,
-                title: "通信は暗号化",
+                title: "通信・保存データともに暗号化",
                 description:
-                  "録音データ・文字起こし内容の送受信はすべて暗号化通信（HTTPS/SSL）で行われます。",
+                  "録音データ・文字起こし内容の送受信はすべて暗号化通信（HTTPS/SSL）で行われ、サーバーに保存されるデータもディスクレベルで暗号化されています。",
               },
               {
                 icon: Ban,
