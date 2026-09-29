@@ -108,10 +108,11 @@ export default function PrivacyPolicy() {
                 <li>送信するデータ：録音した音声データ</li>
                 <li>目的：Whisper APIを用いた音声の文字起こし</li>
                 <li>
-                  プライバシーポリシー：
-                  <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                    https://openai.com/policies/privacy-policy
+                  データの取扱いに関する契約：
+                  <a href="https://openai.com/policies/services-agreement/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                    OpenAI Services Agreement
                   </a>
+                  （API・ビジネス向け利用に適用される契約です。ChatGPT等の一般消費者向けプライバシーポリシーとは別の文書です）
                 </li>
               </ul>
 
@@ -120,10 +121,11 @@ export default function PrivacyPolicy() {
                 <li>送信するデータ：文字起こしテキスト</li>
                 <li>目的：Claude APIを用いた認定調査記録への整形・構造化</li>
                 <li>
-                  プライバシーポリシー：
-                  <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                    https://www.anthropic.com/privacy
+                  データの取扱いに関する契約：
+                  <a href="https://www.anthropic.com/legal/commercial-terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                    Commercial Terms of Service
                   </a>
+                  （API・ビジネス向け利用に適用される契約です。Claude.ai等の一般消費者向けプライバシーポリシーとは別の文書です）
                 </li>
               </ul>
 
@@ -190,8 +192,8 @@ export default function PrivacyPolicy() {
               </p>
               <ul className="list-disc list-inside space-y-2 mt-4">
                 <li>運営者：収集したデータをAIの学習目的で使用することはありません。</li>
-                <li>OpenAI（Whisper API）：2023年3月1日以降、API経由で送信されたデータはモデルの学習・改善には使用されないことが公式ドキュメントで明記されています。</li>
-                <li>Anthropic（Claude API）：APIの利用規約（Commercial Terms）において「顧客コンテンツをモデルの学習に使用しない」ことが明記されています。</li>
+                <li>OpenAI（Whisper API）：OpenAI Services Agreement 4.2条「OpenAIの義務」において、「顧客が明示的に同意しない限り、OpenAIはサービスの開発・改善のために顧客コンテンツを使用しない」ことが明記されています。あわせて、2023年3月1日以降、API経由で送信されたデータはモデルの学習・改善には使用されないことも公式ドキュメントで明記されています。</li>
+                <li>Anthropic（Claude API）：商用利用規約（Commercial Terms of Service）B条「顧客コンテンツ」において、「Anthropicは、サービスからの顧客コンテンツに基づいてモデルをトレーニングすることはできません」と明記されています。</li>
               </ul>
               <p className="text-sm text-gray-500 mt-4">
                 ※ 上記は各社のポリシーに基づく記載です。各社のポリシー変更により取り扱いが変わる場合があります。最新情報は各社の利用規約・プライバシーポリシーをご確認ください。
