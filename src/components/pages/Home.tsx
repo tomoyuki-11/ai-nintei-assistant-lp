@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Check, Mic, Zap, FileText, Shield, Lock, KeyRound, Ban, Menu, X } from "lucide-react";
+import { Check, Mic, Zap, FileText, Shield, Lock, KeyRound, Ban, ShieldCheck, ClipboardList, Menu, X } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -441,33 +441,48 @@ export default function Home() {
             <p className="text-lg text-gray-600">
               介護・行政分野の厳格な要件に対応
             </p>
+            <p className="text-sm text-gray-500 mt-2">
+              データはAWS東京リージョン（国内）のサーバーで管理しています
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
               {
                 icon: Shield,
                 title: "AIに学習されない",
                 description:
-                  "音声データ・文字起こし内容・生成結果がAIの学習に利用されることはありません。あなたのデータは適切に保護されます。",
+                  "音声データ・文字起こし内容・生成結果は、利用するAIの学習データとして使用されません。OpenAI・Anthropic両社との契約上も、顧客データをモデルの学習に使用しないことが明記されています。",
               },
               {
                 icon: Lock,
                 title: "整形完了後5日で自動削除",
                 description:
-                  "AIによる整形が完了してから5日で記録データは自動的に削除されます。長期保存されることはありません。",
+                  "AIによる整形が完了してから5日で記録データは自動的に削除されます。削除処理は1時間ごとに実行され、長期保存されることはありません。",
               },
               {
                 icon: KeyRound,
-                title: "通信・保存データともに暗号化",
+                title: "通信・保存データともに二重に暗号化",
                 description:
-                  "録音データ・文字起こし内容の送受信はすべて暗号化通信（HTTPS/SSL）で行われ、サーバーに保存されるデータもディスクレベルで暗号化されています。",
+                  "録音データ・文字起こし内容の送受信はすべて暗号化通信（HTTPS/SSL）で行われます。保存時もディスクレベルの暗号化に加え、文字起こし内容や音声データ自体をAES-256方式でさらに暗号化しています。",
               },
               {
                 icon: Ban,
                 title: "同意なき第三者提供はしない",
                 description:
                   "ご本人の同意なく、収集した個人情報を第三者に販売・提供することはありません。",
+              },
+              {
+                icon: ShieldCheck,
+                title: "不正ログイン・不正アクセスを防止",
+                description:
+                  "パスワードは復元できない形式で保存され、流出したデータからパスワードが解析されることはありません。短時間に繰り返しログインを試みるアクセスは自動的に制限されます。",
+              },
+              {
+                icon: ClipboardList,
+                title: "操作はすべて記録・管理",
+                description:
+                  "誰が・いつ・どの記録に対してどのような操作を行ったかを記録しています。許可されていないアクセスがあった場合も記録に残るため、異常があればすぐに確認できます。",
               },
             ].map((item, idx) => {
               const Icon = item.icon;
