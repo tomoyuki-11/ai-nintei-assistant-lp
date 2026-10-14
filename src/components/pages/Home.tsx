@@ -822,6 +822,16 @@ export default function Home() {
                     特定商取引法に基づく表記
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="/overseas-transfer-consent.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition"
+                  >
+                    個人情報の海外移転に関する本人同意書
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
