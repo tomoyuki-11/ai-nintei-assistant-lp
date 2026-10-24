@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,7 +12,6 @@ import { CheckCircle2 } from "lucide-react";
 const CONTACT_EMAIL = "itcaremanagement.001@gmail.com";
 
 export default function Contact() {
-  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -45,14 +44,14 @@ export default function Contact() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="container flex items-center justify-between py-4">
-          <button
-            onClick={() => router.push("/")}
+          <Link
+            href="/"
             className="flex items-center gap-3 hover:opacity-80 transition"
           >
             <Image src="/logo-full.png" alt="AI認定調査アシスタント" width={1115} height={212} className="h-10 w-auto" />
-          </button>
-          <Button variant="outline" onClick={() => router.push("/")} className="text-sm">
-            ホームに戻る
+          </Link>
+          <Button asChild variant="outline" className="text-sm">
+            <Link href="/">ホームに戻る</Link>
           </Button>
         </div>
       </nav>
