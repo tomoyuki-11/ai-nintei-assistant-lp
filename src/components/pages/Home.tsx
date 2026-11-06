@@ -664,7 +664,11 @@ export default function Home() {
               </div>
             </div>
             <p className="text-center text-sm text-gray-500 mt-8">
-              現在は個人でのご利用に対応しています。法人・複数名でのご利用は準備中です。
+              現在は個人でのご利用に対応しています。行政・法人のご利用は
+              <a href="/contact" className="text-blue-600 hover:underline font-bold">
+                別途お問い合わせ
+              </a>
+              ください。
             </p>
           </div>
         </div>
