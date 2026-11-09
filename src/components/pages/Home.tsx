@@ -4,7 +4,20 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Check, Mic, Zap, FileText, Shield, Lock, KeyRound, Ban, ShieldCheck, ClipboardList, Menu, X } from "lucide-react";
+import {
+  Check,
+  Mic,
+  Zap,
+  FileText,
+  Shield,
+  Lock,
+  KeyRound,
+  Ban,
+  ShieldCheck,
+  ClipboardList,
+  Menu,
+  X,
+} from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -408,7 +421,11 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-4xl mx-auto">
             {[
-              { label: "訪問後の特記作成時間", value: "約70%削減", note: "※開発者実測値" },
+              {
+                label: "訪問後の特記作成時間",
+                value: "約70%削減",
+                note: "※開発者実測値",
+              },
               { label: null, value: "記録業務の残業を削減" },
               { label: null, value: "聞き漏れ・転記ミスを大幅削減" },
             ].map((stat, idx) => (
@@ -419,7 +436,11 @@ export default function Home() {
                 {stat.label && (
                   <p className="text-sm opacity-80 mb-2">{stat.label}</p>
                 )}
-                <p className={stat.label ? "text-3xl font-bold" : "text-xl font-bold"}>
+                <p
+                  className={
+                    stat.label ? "text-3xl font-bold" : "text-xl font-bold"
+                  }
+                >
                   {stat.value}
                 </p>
                 {stat.note && (
@@ -664,8 +685,11 @@ export default function Home() {
               </div>
             </div>
             <p className="text-center text-sm text-gray-500 mt-8">
-              現在は個人でのご利用に対応しています。行政・法人のご利用は
-              <a href="/contact" className="text-blue-600 hover:underline font-bold">
+              行政・法人のご利用は
+              <a
+                href="/contact"
+                className="text-blue-600 hover:underline font-bold"
+              >
                 別途お問い合わせ
               </a>
               ください。
