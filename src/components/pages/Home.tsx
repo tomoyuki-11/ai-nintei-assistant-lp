@@ -605,12 +605,12 @@ export default function Home() {
                         /月
                       </span>
                     </div>
-                    <p className="text-gray-600">月8回まで（¥373/回相当）</p>
+                    <p className="text-gray-600">月6回まで（¥497/回相当）</p>
                   </div>
 
                   <div className="space-y-3 mb-8">
                     {[
-                      "月8回まで利用可能",
+                      "月6回まで利用可能",
                       "毎月自動更新",
                       "いつでも解約可能",
                     ].map((f) => (

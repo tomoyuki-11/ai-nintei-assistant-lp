@@ -53,7 +53,7 @@ export default function Terms() {
               <p>本サービスの利用料金は以下の通りです：</p>
               <ul className="list-disc list-inside space-y-2 mt-4">
                 <li><strong>トライアル</strong>：無料（14日間・3回まで、クレジットカード不要）</li>
-                <li><strong>月額プラン</strong>：月額 ¥2,980（月8回の調査使用、繰越なし、いつでも解約可能）</li>
+                <li><strong>月額プラン</strong>：月額 ¥2,980（月6回の調査使用、繰越なし、いつでも解約可能）</li>
                 <li><strong>従量課金</strong>：1回 ¥600（クレジット購入制、月額制限なし、有効期限なし）</li>
               </ul>
               <p className="mt-4">

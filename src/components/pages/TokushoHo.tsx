@@ -21,7 +21,7 @@ const ROWS: { term: string; desc: React.ReactNode }[] = [
     desc: (
       <ul className="list-disc list-inside space-y-1">
         <li>トライアル：無料（14日間・3回まで）</li>
-        <li>月額プラン：¥2,980／月（税込・月8回まで）</li>
+        <li>月額プラン：¥2,980／月（税込・月6回まで）</li>
         <li>従量課金：¥600／回（税込）</li>
       </ul>
     ),
