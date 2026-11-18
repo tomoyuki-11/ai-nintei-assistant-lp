@@ -75,7 +75,8 @@ const SOFTWARE_APPLICATION_JSON_LD = {
   url: SITE_URL,
   offers: [
     { "@type": "Offer", name: "トライアル", price: "0", priceCurrency: "JPY" },
-    { "@type": "Offer", name: "月額プラン", price: "2980", priceCurrency: "JPY" },
+    { "@type": "Offer", name: "個人プラン", price: "2980", priceCurrency: "JPY" },
+    { "@type": "Offer", name: "法人プラン", price: "6600", priceCurrency: "JPY" },
     { "@type": "Offer", name: "従量課金", price: "600", priceCurrency: "JPY" },
   ],
 };

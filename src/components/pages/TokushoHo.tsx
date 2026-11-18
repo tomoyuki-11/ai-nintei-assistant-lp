@@ -21,18 +21,19 @@ const ROWS: { term: string; desc: React.ReactNode }[] = [
     desc: (
       <ul className="list-disc list-inside space-y-1">
         <li>トライアル：無料（14日間・3回まで）</li>
-        <li>月額プラン：¥2,980／月（税込・月6回まで）</li>
+        <li>個人プラン：¥2,980／月（税込・月6件まで）、追加クレジット ¥600／件（税込）</li>
+        <li>法人プラン：¥6,600／月（税込・月15件まで）、追加クレジット ¥440／件（税込・月5件まで）</li>
         <li>従量課金：¥600／回（税込）</li>
       </ul>
     ),
   },
   {
     term: "商品代金以外に必要な料金",
-    desc: "インターネット接続料金・通信料金は利用者様のご負担となります。",
+    desc: "インターネット接続料金・通信料金は利用者様のご負担となります。法人プランで請求書払いをご希望の場合、請求書発行手数料として¥400を申し受けます。",
   },
   {
     term: "お支払い方法",
-    desc: "クレジットカード決済（Stripe社の決済システムを利用）",
+    desc: "クレジットカード決済（Stripe社の決済システムを利用）。法人プランは請求書払いにも対応します（要相談）。",
   },
   {
     term: "お支払い時期",
@@ -92,7 +93,7 @@ export default function TokushoHo() {
             </div>
 
             <section className="mt-12 pt-8 border-t border-gray-200">
-              <p className="text-sm text-gray-600">最終更新日：2026年9月18日</p>
+              <p className="text-sm text-gray-600">最終更新日：2026年11月18日</p>
             </section>
           </div>
         </div>

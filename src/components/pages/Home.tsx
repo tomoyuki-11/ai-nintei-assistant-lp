@@ -17,6 +17,8 @@ import {
   ClipboardList,
   Menu,
   X,
+  User,
+  Building2,
 } from "lucide-react";
 import {
   Accordion,
@@ -39,6 +41,40 @@ import { APP_URL } from "@/lib/seo";
 const SIGNUP_BASE_URL = `${APP_URL}/individual/register`;
 const signupUrl = (plan: "trial" | "monthly" | "metered") =>
   `${SIGNUP_BASE_URL}?plan=${plan}`;
+
+const PLAN_COMPARISON = [
+  { label: "月額料金", individual: "2,980円", corporate: "6,600円" },
+  { label: "契約者", individual: "調査員本人", corporate: "事業所" },
+  {
+    label: "主な機能",
+    individual: "録音から調査項目の文章案を作成",
+    corporate: "録音から調査項目の文章案を作成",
+  },
+  {
+    label: "基本利用件数",
+    individual: "月6件（毎月1日リセット）",
+    corporate: "月15件（毎月1日リセット）",
+  },
+  { label: "登録人数", individual: "1名", corporate: "無制限（追加料金なし）" },
+  { label: "事業所内での共同利用", individual: "不可・本人専用", corporate: "可能" },
+  { label: "複数の調査員による同時利用", individual: "不可", corporate: "可能" },
+  { label: "追加クレジット", individual: "1件600円", corporate: "1件440円・月5件まで" },
+  {
+    label: "月間利用上限",
+    individual: "上限なし・追加クレジットで利用可能",
+    corporate:
+      "基本分と追加分を合わせて月20件（超える場合のプランは別途ご相談ください）",
+  },
+  { label: "調査員管理", individual: "―", corporate: "調査員の登録・停止" },
+  { label: "クレジット件数の管理", individual: "―", corporate: "月間クレジット件数の管理" },
+  { label: "導入支援", individual: "―", corporate: "メール（必要に応じて）" },
+  { label: "お支払い方法", individual: "クレジットカード", corporate: "クレジットカード" },
+  {
+    label: "請求書払い",
+    individual: "―",
+    corporate: "別途ご相談ください（発行手数料400円）",
+  },
+];
 
 /** Renders `**bold**` segments in FAQ answers as <strong>, leaving the rest as plain text. */
 function formatFaqAnswer(text: string) {
@@ -534,158 +570,196 @@ export default function Home() {
       {/* Pricing Section */}
       <section id="pricing" className="py-16 md:py-24 bg-blue-50">
         <div className="container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               シンプルな料金プラン
             </h2>
             <p className="text-lg text-gray-600">
-              まずは無料のトライアルからお試しいただけます
+              調査員おひとりでも、事業所単位でもご利用いただけます
             </p>
           </div>
 
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-              {/* Trial Plan */}
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-                <div className="bg-green-500 text-white p-6">
-                  <h3 className="text-2xl font-bold mb-2">トライアル</h3>
-                  <p className="text-sm opacity-90">まずは無料で試す</p>
-                </div>
-                <div className="p-8">
-                  <div className="mb-6">
-                    <div className="text-4xl font-bold text-gray-900 mb-2">
-                      ¥0
-                    </div>
-                    <p className="text-gray-600">14日間・3回まで</p>
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              {/* Individual area */}
+              <div className="rounded-xl border-2 border-blue-200 bg-blue-100/50 p-4 md:p-5 flex flex-col gap-4">
+                <p className="flex items-center gap-2 font-bold text-blue-800 text-lg">
+                  <User className="w-5 h-5" />
+                  個人の方
+                </p>
+                {/* Individual Plan */}
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition flex flex-col">
+                  <div className="bg-blue-600 text-white p-6">
+                    <h3 className="text-2xl font-bold mb-1">個人プラン</h3>
+                    <p className="text-sm opacity-90">調査員ご本人のご契約</p>
                   </div>
-
-                  <div className="space-y-3 mb-8">
-                    {[
-                      "14日間無料",
-                      "3回まで利用可能",
-                      "クレジットカード不要",
-                    ].map((f) => (
-                      <div key={f} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                        <p className="font-bold text-gray-900">{f}</p>
+                  <div className="p-8 flex flex-col flex-1">
+                    <div className="mb-6">
+                      <div className="text-4xl font-bold text-gray-900 mb-2">
+                        ¥2,980
+                        <span className="text-lg text-gray-600 font-normal">
+                          /月
+                        </span>
                       </div>
-                    ))}
-                  </div>
+                      <p className="text-gray-600">月6件まで（¥497/件相当）</p>
+                    </div>
 
+                    <div className="space-y-3 mb-8">
+                      {[
+                        "月6件まで（毎月1日リセット）",
+                        "ご本人専用（1名）",
+                        "追加クレジット 1件¥600",
+                        "追加クレジットで上限なく利用可能",
+                      ].map((f) => (
+                        <div key={f} className="flex items-start gap-3">
+                          <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                          <p className="font-bold text-gray-900">{f}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <Button
+                      size="lg"
+                      className="mt-auto w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition"
+                      onClick={() => {
+                        window.open(signupUrl("monthly"), "_blank", "noopener,noreferrer");
+                      }}
+                    >
+                      個人プランに申し込む
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Trial */}
+                <div className="bg-white rounded-lg border border-green-300 p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-bold text-green-600">まずは無料で試す</p>
+                    <p className="font-bold text-gray-900">無料トライアル：14日間・3件まで</p>
+                    <p className="text-sm text-gray-600">クレジットカード不要</p>
+                  </div>
                   <Button
-                    size="lg"
-                    className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition"
+                    className="shrink-0 bg-green-500 hover:bg-green-600 text-white font-bold px-6 rounded-lg transition"
                     onClick={() => {
-                      window.open(
-                        signupUrl("trial"),
-                        "_blank",
-                        "noopener,noreferrer",
-                      );
+                      window.open(signupUrl("trial"), "_blank", "noopener,noreferrer");
                     }}
                   >
                     無料で始める
                   </Button>
                 </div>
-              </div>
 
-              {/* Monthly Plan (recommended) */}
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition ring-2 ring-blue-600 md:-mt-4 relative">
-                <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
-                  おすすめ
-                </div>
-                <div className="bg-blue-600 text-white p-6">
-                  <h3 className="text-2xl font-bold mb-2">月額プラン</h3>
-                  <p className="text-sm opacity-90">定期利用に最適</p>
-                </div>
-                <div className="p-8">
-                  <div className="mb-6">
-                    <div className="text-4xl font-bold text-gray-900 mb-2">
-                      ¥2,980
-                      <span className="text-lg text-gray-600 font-normal">
-                        /月
-                      </span>
-                    </div>
-                    <p className="text-gray-600">月6回まで（¥497/回相当）</p>
+                {/* Pay-as-you-go */}
+                <div className="bg-white rounded-lg border border-gray-300 p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-bold text-gray-500">月額なしで使う</p>
+                    <p className="font-bold text-gray-900">従量課金：1件 ¥600</p>
+                    <p className="text-sm text-gray-600">使わない月は費用なし・有効期限なし</p>
                   </div>
-
-                  <div className="space-y-3 mb-8">
-                    {[
-                      "月6回まで利用可能",
-                      "毎月自動更新",
-                      "いつでも解約可能",
-                    ].map((f) => (
-                      <div key={f} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                        <p className="font-bold text-gray-900">{f}</p>
-                      </div>
-                    ))}
-                  </div>
-
                   <Button
-                    size="lg"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition"
-                    onClick={() => {
-                      window.open(
-                        signupUrl("monthly"),
-                        "_blank",
-                        "noopener,noreferrer",
-                      );
-                    }}
-                  >
-                    月額プランに申し込む
-                  </Button>
-                </div>
-              </div>
-
-              {/* Pay-as-you-go Plan */}
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-                <div className="bg-gray-700 text-white p-6">
-                  <h3 className="text-2xl font-bold mb-2">従量課金</h3>
-                  <p className="text-sm opacity-90">使った分だけ</p>
-                </div>
-                <div className="p-8">
-                  <div className="mb-6">
-                    <div className="text-4xl font-bold text-gray-900 mb-2">
-                      ¥600
-                      <span className="text-lg text-gray-600 font-normal">
-                        /回
-                      </span>
-                    </div>
-                    <p className="text-gray-600">クレジットを購入して使用</p>
-                  </div>
-
-                  <div className="space-y-3 mb-8">
-                    {[
-                      "使わない月は費用なし",
-                      "有効期限なし",
-                      "必要な時だけ購入できる",
-                    ].map((f) => (
-                      <div key={f} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                        <p className="font-bold text-gray-900">{f}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <Button
-                    size="lg"
                     variant="outline"
-                    className="w-full border-2 border-gray-700 text-gray-700 hover:bg-gray-100 font-bold py-3 rounded-lg transition"
+                    className="shrink-0 border-2 border-gray-700 text-gray-700 hover:bg-gray-100 font-bold px-6 rounded-lg transition"
                     onClick={() => {
-                      window.open(
-                        signupUrl("metered"),
-                        "_blank",
-                        "noopener,noreferrer",
-                      );
+                      window.open(signupUrl("metered"), "_blank", "noopener,noreferrer");
                     }}
                   >
                     クレジットを購入する
                   </Button>
                 </div>
               </div>
+
+              {/* Corporate area */}
+              <div className="rounded-xl border-2 border-slate-300 bg-slate-100/70 p-4 md:p-5 flex flex-col gap-4">
+                <p className="flex items-center gap-2 font-bold text-[var(--brand-dark-navy)] text-lg">
+                  <Building2 className="w-5 h-5" />
+                  事業所・法人の方
+                </p>
+                {/* Corporate Plan */}
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition flex flex-col ring-2 ring-[var(--brand-dark-navy)]">
+                  <div className="bg-[var(--brand-dark-navy)] text-white p-6">
+                    <h3 className="text-2xl font-bold mb-1">法人プラン</h3>
+                    <p className="text-sm opacity-90">事業所単位のご契約</p>
+                  </div>
+                  <div className="p-8 flex flex-col flex-1">
+                    <div className="mb-6">
+                      <div className="text-4xl font-bold text-gray-900 mb-2">
+                        ¥6,600
+                        <span className="text-lg text-gray-600 font-normal">
+                          /月
+                        </span>
+                      </div>
+                      <p className="text-gray-600">月15件まで（¥440/件相当）</p>
+                    </div>
+
+                    <div className="space-y-3 mb-8">
+                      {[
+                        "月15件まで（毎月1日リセット）",
+                        "調査員の登録人数 無制限・追加料金なし",
+                        "事業所内での共同利用・同時利用OK",
+                        "追加クレジット 1件¥440（月5件まで）",
+                        "調査員の登録・停止／クレジット件数の管理",
+                        "請求書払いにも対応（要相談）",
+                      ].map((f) => (
+                        <div key={f} className="flex items-start gap-3">
+                          <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                          <p className="font-bold text-gray-900">{f}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <Button
+                      asChild
+                      size="lg"
+                      className="mt-auto w-full bg-[var(--brand-dark-navy)] hover:opacity-90 text-white font-bold py-3 rounded-lg transition"
+                    >
+                      <a href="/contact">法人プランのお問い合わせ</a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            {/* Comparison table */}
+            <div className="mt-16">
+              <h3 className="text-2xl font-bold text-gray-900 text-center mb-6">
+                個人プランと法人プランの比較
+              </h3>
+              <div className="overflow-x-auto bg-white rounded-lg shadow">
+                <table className="w-full text-xs sm:text-sm md:text-base">
+                  <thead>
+                    <tr className="bg-gray-50">
+                      <th scope="col" className="text-left p-2.5 md:p-4 w-[28%] md:w-1/4 text-gray-700">
+                        項目
+                      </th>
+                      <th scope="col" className="text-left p-2.5 md:p-4 text-blue-700">
+                        個人プラン
+                      </th>
+                      <th scope="col" className="text-left p-2.5 md:p-4 text-[var(--brand-dark-navy)]">
+                        法人プラン
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {PLAN_COMPARISON.map((row) => (
+                      <tr key={row.label} className="border-t border-gray-200">
+                        <th
+                          scope="row"
+                          className="text-left p-2.5 md:p-4 font-bold text-gray-700 bg-gray-50/60 align-top"
+                        >
+                          {row.label}
+                        </th>
+                        <td className="p-2.5 md:p-4 text-gray-900 align-top">{row.individual}</td>
+                        <td className="p-2.5 md:p-4 text-gray-900 align-top">{row.corporate}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-sm text-gray-500 mt-4">
+                ※表示価格はすべて税込です。
+              </p>
+            </div>
+
             <p className="text-center text-sm text-gray-500 mt-8">
-              行政・法人のご利用は
+              行政機関でのご利用や、月20件を超えるご利用は
               <a
                 href="/contact"
                 className="text-blue-600 hover:underline font-bold"

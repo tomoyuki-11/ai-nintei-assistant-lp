@@ -53,7 +53,8 @@ export default function Terms() {
               <p>本サービスの利用料金は以下の通りです：</p>
               <ul className="list-disc list-inside space-y-2 mt-4">
                 <li><strong>トライアル</strong>：無料（14日間・3回まで、クレジットカード不要）</li>
-                <li><strong>月額プラン</strong>：月額 ¥2,980（月6回の調査使用、繰越なし、いつでも解約可能）</li>
+                <li><strong>個人プラン</strong>：月額 ¥2,980（月6件の調査使用、毎月1日リセット・繰越なし、登録人数1名・本人専用、追加クレジット1件 ¥600、いつでも解約可能）</li>
+                <li><strong>法人プラン</strong>：月額 ¥6,600（月15件の調査使用、毎月1日リセット・繰越なし、事業所単位の契約で登録人数無制限、追加クレジット1件 ¥440・月5件まで、基本分と追加分を合わせて月20件まで）</li>
                 <li><strong>従量課金</strong>：1回 ¥600（クレジット購入制、月額制限なし、有効期限なし）</li>
               </ul>
               <p className="mt-4">
@@ -140,7 +141,7 @@ export default function Terms() {
 
             <section className="mt-12 pt-8 border-t border-gray-200">
               <p className="text-sm text-gray-600">
-                最終改定日：2026年9月18日
+                最終改定日：2026年11月18日
               </p>
             </section>
           </div>
