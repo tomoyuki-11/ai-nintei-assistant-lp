@@ -47,18 +47,30 @@ const PLAN_COMPARISON = [
   { label: "契約者", individual: "調査員本人", corporate: "事業所" },
   {
     label: "主な機能",
-    individual: "録音から調査項目の文章案を作成",
-    corporate: "録音から調査項目の文章案を作成",
+    individual: "文字起こしテキスト・音声データから調査項目の文章案を作成",
+    corporate: "文字起こしテキスト・音声データから調査項目の文章案を作成",
   },
   {
     label: "基本利用件数",
     individual: "月6件（毎月1日リセット）",
     corporate: "月15件（毎月1日リセット）",
   },
-  { label: "登録人数", individual: "1名", corporate: "無制限（追加料金なし）" },
-  { label: "事業所内での共同利用", individual: "不可・本人専用", corporate: "可能" },
-  { label: "複数の調査員による同時利用", individual: "不可", corporate: "可能" },
-  { label: "追加クレジット", individual: "1件600円", corporate: "1件440円・月5件まで" },
+  { label: "調査員", individual: "1名", corporate: "無制限（追加料金なし）" },
+  {
+    label: "事業所内での共同利用",
+    individual: "不可・本人専用",
+    corporate: "可能",
+  },
+  {
+    label: "複数の調査員による同時利用",
+    individual: "不可",
+    corporate: "可能",
+  },
+  {
+    label: "追加クレジット",
+    individual: "1件600円",
+    corporate: "1件500円・月5件まで",
+  },
   {
     label: "月間利用上限",
     individual: "上限なし・追加クレジットで利用可能",
@@ -66,9 +78,17 @@ const PLAN_COMPARISON = [
       "基本分と追加分を合わせて月20件（超える場合のプランは別途ご相談ください）",
   },
   { label: "調査員管理", individual: "―", corporate: "調査員の登録・停止" },
-  { label: "クレジット件数の管理", individual: "―", corporate: "月間クレジット件数の管理" },
+  {
+    label: "クレジット件数の管理",
+    individual: "―",
+    corporate: "月間クレジット件数の管理",
+  },
   { label: "導入支援", individual: "―", corporate: "メール（必要に応じて）" },
-  { label: "お支払い方法", individual: "クレジットカード", corporate: "クレジットカード" },
+  {
+    label: "お支払い方法",
+    individual: "クレジットカード",
+    corporate: "クレジットカード",
+  },
   {
     label: "請求書払い",
     individual: "―",
@@ -591,7 +611,7 @@ export default function Home() {
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition flex flex-col">
                   <div className="bg-blue-600 text-white p-6">
                     <h3 className="text-2xl font-bold mb-1">個人プラン</h3>
-                    <p className="text-sm opacity-90">調査員ご本人のご契約</p>
+                    <p className="text-sm opacity-90">調査員1名のご契約</p>
                   </div>
                   <div className="p-8 flex flex-col flex-1">
                     <div className="mb-6">
@@ -607,7 +627,7 @@ export default function Home() {
                     <div className="space-y-3 mb-8">
                       {[
                         "月6件まで（毎月1日リセット）",
-                        "ご本人専用（1名）",
+                        "調査員1名専用",
                         "追加クレジット 1件¥600",
                         "追加クレジットで上限なく利用可能",
                       ].map((f) => (
@@ -622,7 +642,11 @@ export default function Home() {
                       size="lg"
                       className="mt-auto w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition"
                       onClick={() => {
-                        window.open(signupUrl("monthly"), "_blank", "noopener,noreferrer");
+                        window.open(
+                          signupUrl("monthly"),
+                          "_blank",
+                          "noopener,noreferrer",
+                        );
                       }}
                     >
                       個人プランに申し込む
@@ -633,14 +657,24 @@ export default function Home() {
                 {/* Trial */}
                 <div className="bg-white rounded-lg border border-green-300 p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <p className="text-sm font-bold text-green-600">まずは無料で試す</p>
-                    <p className="font-bold text-gray-900">無料トライアル：14日間・3件まで</p>
-                    <p className="text-sm text-gray-600">クレジットカード不要</p>
+                    <p className="text-sm font-bold text-green-600">
+                      まずは無料で試す
+                    </p>
+                    <p className="font-bold text-gray-900">
+                      無料トライアル：14日間・3件まで
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      クレジットカード不要
+                    </p>
                   </div>
                   <Button
                     className="shrink-0 bg-green-500 hover:bg-green-600 text-white font-bold px-6 rounded-lg transition"
                     onClick={() => {
-                      window.open(signupUrl("trial"), "_blank", "noopener,noreferrer");
+                      window.open(
+                        signupUrl("trial"),
+                        "_blank",
+                        "noopener,noreferrer",
+                      );
                     }}
                   >
                     無料で始める
@@ -650,15 +684,25 @@ export default function Home() {
                 {/* Pay-as-you-go */}
                 <div className="bg-white rounded-lg border border-gray-300 p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <p className="text-sm font-bold text-gray-500">月額なしで使う</p>
-                    <p className="font-bold text-gray-900">従量課金：1件 ¥600</p>
-                    <p className="text-sm text-gray-600">使わない月は費用なし・有効期限なし</p>
+                    <p className="text-sm font-bold text-gray-500">
+                      月額なしで使う
+                    </p>
+                    <p className="font-bold text-gray-900">
+                      従量課金：1件 ¥600
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      使わない月は費用なし・有効期限なし
+                    </p>
                   </div>
                   <Button
                     variant="outline"
                     className="shrink-0 border-2 border-gray-700 text-gray-700 hover:bg-gray-100 font-bold px-6 rounded-lg transition"
                     onClick={() => {
-                      window.open(signupUrl("metered"), "_blank", "noopener,noreferrer");
+                      window.open(
+                        signupUrl("metered"),
+                        "_blank",
+                        "noopener,noreferrer",
+                      );
                     }}
                   >
                     クレジットを購入する
@@ -692,9 +736,9 @@ export default function Home() {
                     <div className="space-y-3 mb-8">
                       {[
                         "月15件まで（毎月1日リセット）",
-                        "調査員の登録人数 無制限・追加料金なし",
+                        "調査員の登録人数 無制限",
                         "事業所内での共同利用・同時利用OK",
-                        "追加クレジット 1件¥440（月5件まで）",
+                        "追加クレジット 1件¥500（月5件まで）",
                         "調査員の登録・停止／クレジット件数の管理",
                         "請求書払いにも対応（要相談）",
                       ].map((f) => (
@@ -714,6 +758,23 @@ export default function Home() {
                     </Button>
                   </div>
                 </div>
+
+                {/* Government */}
+                <div className="bg-white rounded-lg border border-gray-300 p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-bold text-gray-500">行政機関の方へ</p>
+                    <p className="font-bold text-gray-900">
+                      行政機関でのご利用はお問い合わせください
+                    </p>
+                  </div>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="shrink-0 border-2 border-[var(--brand-dark-navy)] text-[var(--brand-dark-navy)] hover:bg-gray-100 font-bold px-6 rounded-lg transition"
+                  >
+                    <a href="/contact">お問い合わせ</a>
+                  </Button>
+                </div>
               </div>
             </div>
 
@@ -726,13 +787,22 @@ export default function Home() {
                 <table className="w-full text-xs sm:text-sm md:text-base">
                   <thead>
                     <tr className="bg-gray-50">
-                      <th scope="col" className="text-left p-2.5 md:p-4 w-[28%] md:w-1/4 text-gray-700">
+                      <th
+                        scope="col"
+                        className="text-left p-2.5 md:p-4 w-[28%] md:w-1/4 text-gray-700"
+                      >
                         項目
                       </th>
-                      <th scope="col" className="text-left p-2.5 md:p-4 text-blue-700">
+                      <th
+                        scope="col"
+                        className="text-left p-2.5 md:p-4 text-blue-700"
+                      >
                         個人プラン
                       </th>
-                      <th scope="col" className="text-left p-2.5 md:p-4 text-[var(--brand-dark-navy)]">
+                      <th
+                        scope="col"
+                        className="text-left p-2.5 md:p-4 text-[var(--brand-dark-navy)]"
+                      >
                         法人プラン
                       </th>
                     </tr>
@@ -746,8 +816,12 @@ export default function Home() {
                         >
                           {row.label}
                         </th>
-                        <td className="p-2.5 md:p-4 text-gray-900 align-top">{row.individual}</td>
-                        <td className="p-2.5 md:p-4 text-gray-900 align-top">{row.corporate}</td>
+                        <td className="p-2.5 md:p-4 text-gray-900 align-top">
+                          {row.individual}
+                        </td>
+                        <td className="p-2.5 md:p-4 text-gray-900 align-top">
+                          {row.corporate}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -759,7 +833,7 @@ export default function Home() {
             </div>
 
             <p className="text-center text-sm text-gray-500 mt-8">
-              行政機関でのご利用や、月20件を超えるご利用は
+              月20件を超えるご利用は
               <a
                 href="/contact"
                 className="text-blue-600 hover:underline font-bold"
