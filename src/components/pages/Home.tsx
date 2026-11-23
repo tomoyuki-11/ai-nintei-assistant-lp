@@ -19,6 +19,7 @@ import {
   X,
   User,
   Building2,
+  Landmark,
 } from "lucide-react";
 import {
   Accordion,
@@ -263,29 +264,6 @@ export default function Home() {
                   します。
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-green-500 hover:bg-green-600 text-white font-bold text-lg px-8 py-6 rounded-lg transition-all hover:scale-105"
-                  onClick={() => {
-                    window.open(
-                      signupUrl("trial"),
-                      "_blank",
-                      "noopener,noreferrer",
-                    );
-                  }}
-                >
-                  無料で試してみる
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold text-lg px-8 py-6 rounded-lg"
-                  onClick={() => router.push("/contact")}
-                >
-                  お問い合わせ
-                </Button>
-              </div>
             </div>
 
             {/* Right: Visual */}
@@ -319,29 +297,49 @@ export default function Home() {
                 します。
               </p>
             </div>
-            <div className="flex flex-col gap-3">
-              <Button
-                size="lg"
-                className="bg-green-500 hover:bg-green-600 text-white font-bold text-base px-6 py-5 rounded-lg transition-all hover:scale-105 w-full"
-                onClick={() => {
-                  window.open(
-                    signupUrl("trial"),
-                    "_blank",
-                    "noopener,noreferrer",
-                  );
-                }}
-              >
-                無料で試してみる
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold text-base px-6 py-5 rounded-lg w-full"
-                onClick={() => router.push("/contact")}
-              >
-                お問い合わせ
-              </Button>
-            </div>
+          </div>
+
+          {/* Audience cards */}
+          <div className="mt-10 md:mt-16 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            <a
+              href="/contact"
+              className="group rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 text-white p-6 shadow-lg hover:shadow-xl transition flex flex-col"
+            >
+              <Landmark className="w-10 h-10 mb-3" />
+              <p className="text-xl font-bold mb-2">行政機関でのご利用</p>
+              <p className="opacity-90 mb-4">
+                導入をご検討の行政機関の方は、お気軽にご相談ください。
+              </p>
+              <span className="mt-auto font-bold group-hover:underline">
+                お問い合わせ →
+              </span>
+            </a>
+            <a
+              href="#pricing"
+              className="group rounded-xl bg-white border-2 border-gray-200 hover:border-[var(--brand-dark-navy)] p-6 shadow-sm hover:shadow-md transition flex flex-col"
+            >
+              <Building2 className="w-10 h-10 mb-3 text-[var(--brand-dark-navy)]" />
+              <p className="text-xl font-bold text-gray-900 mb-2">法人でのご利用</p>
+              <p className="text-gray-600 mb-4">
+                事業所単位でのご契約。調査員の登録人数は無制限です。
+              </p>
+              <span className="mt-auto font-bold text-[var(--brand-dark-navy)] group-hover:underline">
+                法人プランを見る →
+              </span>
+            </a>
+            <a
+              href="#pricing"
+              className="group rounded-xl bg-white border-2 border-gray-200 hover:border-blue-600 p-6 shadow-sm hover:shadow-md transition flex flex-col"
+            >
+              <User className="w-10 h-10 mb-3 text-blue-600" />
+              <p className="text-xl font-bold text-gray-900 mb-2">個人でのご利用</p>
+              <p className="text-gray-600 mb-4">
+                調査員1名でのご契約。14日間の無料トライアルがあります。
+              </p>
+              <span className="mt-auto font-bold text-blue-600 group-hover:underline">
+                個人プランを見る →
+              </span>
+            </a>
           </div>
         </div>
       </section>
@@ -592,7 +590,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              シンプルな料金プラン
+              料金プラン
             </h2>
             <p className="text-lg text-gray-600">
               調査員おひとりでも、事業所単位でもご利用いただけます
@@ -758,24 +756,32 @@ export default function Home() {
                     </Button>
                   </div>
                 </div>
+              </div>
+            </div>
 
-                {/* Government */}
-                <div className="bg-white rounded-lg border border-gray-300 p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div>
-                    <p className="text-sm font-bold text-gray-500">行政機関の方へ</p>
-                    <p className="font-bold text-gray-900">
-                      行政機関でのご利用はお問い合わせください
-                    </p>
-                  </div>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="shrink-0 border-2 border-[var(--brand-dark-navy)] text-[var(--brand-dark-navy)] hover:bg-gray-100 font-bold px-6 rounded-lg transition"
-                  >
-                    <a href="/contact">お問い合わせ</a>
-                  </Button>
+            {/* Government */}
+            <div className="mt-8 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-lg">
+              <div className="flex items-start gap-4">
+                <Landmark className="w-10 h-10 md:w-12 md:h-12 shrink-0 opacity-90" />
+                <div>
+                  <p className="text-sm md:text-base font-bold opacity-90 mb-1">
+                    行政機関の方へ
+                  </p>
+                  <p className="text-xl md:text-2xl font-bold leading-snug">
+                    行政機関でのご利用はお問い合わせください
+                  </p>
+                  <p className="mt-2 opacity-90">
+                    ご利用方法や導入について、個別にご案内いたします。
+                  </p>
                 </div>
               </div>
+              <Button
+                asChild
+                size="lg"
+                className="shrink-0 w-full md:w-auto bg-white text-blue-700 hover:bg-blue-50 font-bold text-lg px-8 py-6 rounded-lg transition"
+              >
+                <a href="/contact">お問い合わせはこちら</a>
+              </Button>
             </div>
 
             {/* Comparison table */}
