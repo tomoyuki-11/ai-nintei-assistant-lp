@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
       <main className="py-16 md:py-24">
         <div className="container max-w-3xl">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">プライバシーポリシー</h1>
-          <p className="text-sm text-gray-500 mb-8">最終改定日：2026年9月18日</p>
+          <p className="text-sm text-gray-500 mb-8">最終改定日：2026年11月26日</p>
 
           <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
             <p>
@@ -78,10 +78,10 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">3. 音声データの取り扱い</h2>
               <p>
-                録音した音声ファイルは、文字起こし処理のためにOpenAI社のWhisper APIへ送信されます。あわせて、本サービスのサーバー上にも保存され、AIによる整形が完了してから5日が経過した時点で自動的に削除されます（保存期間の詳細は「7. データの保持期間と削除」をご覧ください）。保存されている間は、履歴画面からご自身で音声ファイルをダウンロード・削除することができます。
+                録音した音声ファイルは、文字起こし処理のため、AWS（Amazon Web Services）の東京リージョン（国内）で提供される音声認識サービス「Amazon Transcribe」で処理されます。処理のためにAWS上へ一時保存した音声データおよび文字起こし結果は、処理の完了後に自動的に削除されます。あわせて、本サービスのサーバー上にも保存され、AIによる整形が完了してから5日が経過した時点で自動的に削除されます（保存期間の詳細は「7. データの保持期間と削除」をご覧ください）。保存されている間は、履歴画面からご自身で音声ファイルをダウンロード・削除することができます。
               </p>
               <p className="text-sm text-gray-500 mt-4">
-                ※ OpenAI社における音声データの取り扱いについては、OpenAI社のプライバシーポリシーをご確認ください。
+                ※ 万一、処理後の削除が完了しなかった場合でも、一時保存したデータは1日以内に自動的に削除される設定としています。
               </p>
             </section>
 
@@ -91,37 +91,35 @@ export default function PrivacyPolicy() {
                 本サービスは、サービスの提供にあたり以下の外部サービスへデータを送信します。本サービスをご利用いただくことで、以下の各社のプライバシーポリシーにも同意したものとみなします。
               </p>
               <p className="font-bold text-blue-600 mt-4">
-                外国にある第三者への提供（越境移転）について
+                AI処理の国内完結について
               </p>
               <p className="mt-2">
-                OpenAI・Anthropicはいずれも米国に所在する事業者であり、送信されたデータは米国に所在するサーバーで処理されます。これは個人情報保護法上の「外国にある第三者への個人データの提供」に該当するものとして扱っています。両社とも、契約条件・データ処理に関する文書（DPA等）を公表しており、運営者はこれらの内容が法令上求められる水準を満たすものであるかについて、専門家の確認を得たうえで、必要な対応を整えてまいります。各社の体制の詳細は、下記のプライバシーポリシーをご確認ください。
+                音声の文字起こしおよびAIによる整形は、いずれもAWS（Amazon Web Services）の日本国内のリージョン（東京・大阪）で処理されます。AIによる整形には、Anthropic社が開発したAIモデル（Claude）を、AWSが提供する「Amazon Bedrock」を通じて利用しています。このモデルはAWSが管理する環境で動作しており、送信したデータがAnthropic社に提供されることはありません。
+              </p>
+              <p className="text-sm text-gray-500 mt-2">
+                ※ 2026年11月23日より前に処理されたデータは、改定前の本ポリシーに基づき、OpenAI社およびAnthropic社（いずれも米国）のサービスで処理されています。
               </p>
 
-              <h3 className="text-lg font-bold text-gray-900 mt-6 mb-2">OpenAI（音声文字起こし）</h3>
+              <h3 className="text-lg font-bold text-gray-900 mt-6 mb-2">AWS：Amazon Transcribe（音声文字起こし）</h3>
               <ul className="list-disc list-inside space-y-2">
                 <li>送信するデータ：録音した音声データ</li>
-                <li>目的：Whisper APIを用いた音声の文字起こし</li>
-                <li>
-                  データの取扱いに関する契約：
-                  <a href="https://openai.com/policies/services-agreement/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                    OpenAI Services Agreement
-                  </a>
-                  （API・ビジネス向け利用に適用される契約です。ChatGPT等の一般消費者向けプライバシーポリシーとは別の文書です）
-                </li>
+                <li>目的：音声の文字起こし</li>
+                <li>処理する地域：日本（東京リージョン）</li>
               </ul>
 
-              <h3 className="text-lg font-bold text-gray-900 mt-6 mb-2">Anthropic（AI整形）</h3>
+              <h3 className="text-lg font-bold text-gray-900 mt-6 mb-2">AWS：Amazon Bedrock（AI整形）</h3>
               <ul className="list-disc list-inside space-y-2">
-                <li>送信するデータ：文字起こしテキスト</li>
-                <li>目的：Claude APIを用いた認定調査記録への整形・構造化</li>
-                <li>
-                  データの取扱いに関する契約：
-                  <a href="https://www.anthropic.com/legal/commercial-terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                    Commercial Terms of Service
-                  </a>
-                  （API・ビジネス向け利用に適用される契約です。Claude.ai等の一般消費者向けプライバシーポリシーとは別の文書です）
-                </li>
+                <li>送信するデータ：文字起こしテキスト（氏名等を自動的に匿名化したもの）</li>
+                <li>目的：AIモデル（Claude）を用いた認定調査記録への整形・構造化</li>
+                <li>処理する地域：日本（東京・大阪リージョン）</li>
               </ul>
+              <p className="mt-4">
+                AWSにおけるデータの取扱いについては、
+                <a href="https://aws.amazon.com/jp/compliance/data-privacy-faq/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                  AWSのデータプライバシーに関するよくある質問
+                </a>
+                をご確認ください。
+              </p>
 
               <h3 className="text-lg font-bold text-gray-900 mt-6 mb-2">Stripe（決済処理）</h3>
               <ul className="list-disc list-inside space-y-2">
@@ -148,10 +146,10 @@ export default function PrivacyPolicy() {
                 調査対象者の個人情報は適切に保護されており、AIモデルの学習・訓練に利用されることはありません。
               </p>
               <p className="mt-4">
-                送信先であるOpenAI・Anthropicの各社においても、APIを通じて送信されたデータをモデルの学習に利用しないことが公式に明記されています（詳細は「8. AIの学習への利用について」をご参照ください）。また、通信はすべてHTTPS（SSL/TLS暗号化）で保護され、サーバーに保存されるデータはディスクレベルでも暗号化されています。記録データは整形完了後5日で自動的に削除されます。
+                音声の文字起こしおよびAIによる整形は、いずれも日本国内のAWS上で処理され、AIモデルの学習には利用されない設定としています（詳細は「8. AIの学習への利用について」をご参照ください）。また、AIによる整形の前に、氏名・生年月日・施設名等を自動的に匿名化（マスキング）してから送信しています。ただし、この処理は検出技術の限界により、すべての個人情報を完全に除去できることを保証するものではありません。通信はすべてHTTPS（SSL/TLS暗号化）で保護され、サーバーに保存されるデータはディスクレベルでも暗号化されています。記録データは整形完了後5日で自動的に削除されます。
               </p>
               <p className="text-sm text-gray-500 mt-4">
-                ※ 本サービスをご利用の調査員は、調査対象者ご本人またはご家族に対して、本サービスの利用（録音・AIによる処理、および外国にある事業者へのデータ送信を含む）について説明し、同意を得た上でご使用ください。
+                ※ 本サービスをご利用の調査員は、調査対象者ご本人またはご家族に対して、本サービスの利用（録音・AIによる処理を含む）について説明し、同意を得た上でご使用ください。
               </p>
             </section>
 
@@ -181,7 +179,8 @@ export default function PrivacyPolicy() {
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">7. データの保持期間と削除</h2>
               <ul className="list-disc list-inside space-y-2">
                 <li><strong>調査記録（文字起こしテキスト・整形テキスト・音声ファイル）</strong>：AIによる整形完了から5日が経過した時点で自動的に削除されます。それより前に削除したい場合は、履歴画面からいつでも手動で削除できます。</li>
-                <li><strong>アカウントの削除</strong>：アカウントの削除をご希望の場合は、お問い合わせ先までご連絡ください。削除後はデータを復元できません。</li>
+                <li><strong>アカウントの削除</strong>：個人向けプランをご利用の方は、アプリのメニューにある「アカウント削除」からご自身で削除できます。それ以外の方は、お問い合わせ先までご連絡ください。削除後はデータを復元できません。</li>
+                <li><strong>削除したアカウントのメールアドレス</strong>：無料トライアルの不正な再利用を防止するため、アカウント削除後もメールアドレスのみを保持し、同じメールアドレスでの再登録をお断りしています。</li>
               </ul>
             </section>
 
@@ -192,11 +191,11 @@ export default function PrivacyPolicy() {
               </p>
               <ul className="list-disc list-inside space-y-2 mt-4">
                 <li>運営者：収集したデータをAIの学習目的で使用することはありません。</li>
-                <li>OpenAI（Whisper API）：OpenAI Services Agreement 4.2条「OpenAIの義務」において、「顧客が明示的に同意しない限り、OpenAIはサービスの開発・改善のために顧客コンテンツを使用しない」ことが明記されています。あわせて、2023年3月1日以降、API経由で送信されたデータはモデルの学習・改善には使用されないことも公式ドキュメントで明記されています。</li>
-                <li>Anthropic（Claude API）：商用利用規約（Commercial Terms of Service）B条「顧客コンテンツ」において、「Anthropicは、サービスからの顧客コンテンツに基づいてモデルをトレーニングすることはできません」と明記されています。</li>
+                <li>Amazon Transcribe（音声文字起こし）：AWSのAIサービスがお客様のデータをサービスの改善やAIモデルの学習に利用することを拒否する設定（AIサービスのオプトアウトポリシー）を適用しています。</li>
+                <li>Amazon Bedrock（AI整形）：送信されたデータをAIモデルの学習に利用せず、モデルの提供元（Anthropic社）とも共有しないことが、AWSの公式ドキュメントで明記されています。さらに本サービスでは、送信したデータをAWSが保存しない設定（データ保持モード「none」）を適用しています。</li>
               </ul>
               <p className="text-sm text-gray-500 mt-4">
-                ※ 上記は各社のポリシーに基づく記載です。各社のポリシー変更により取り扱いが変わる場合があります。最新情報は各社の利用規約・プライバシーポリシーをご確認ください。
+                ※ 上記はAWSのポリシーおよび本サービスの設定に基づく記載です。AWSのポリシー変更により取り扱いが変わる場合があります。最新情報はAWSの公式ドキュメントをご確認ください。
               </p>
             </section>
 
@@ -208,6 +207,7 @@ export default function PrivacyPolicy() {
                 <li>ユーザー認証およびアカウント管理</li>
                 <li>利用プランおよびクレジットの管理</li>
                 <li>ご利用に関するお問い合わせへの対応</li>
+                <li>無料トライアルの重複利用など、不正利用の防止</li>
                 <li>法令に基づく開示が必要な場合の対応</li>
               </ul>
               <p className="mt-4">
@@ -255,7 +255,7 @@ export default function PrivacyPolicy() {
 
             <section className="mt-12 pt-8 border-t border-gray-200">
               <p className="text-sm text-gray-600">
-                最終改定日：2026年9月18日
+                最終改定日：2026年11月26日
               </p>
             </section>
           </div>

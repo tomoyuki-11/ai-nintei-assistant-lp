@@ -517,7 +517,7 @@ export default function Home() {
               介護・行政分野の厳格な要件に対応
             </p>
             <p className="text-sm text-gray-500 mt-2">
-              データはAWS東京リージョン（国内）のサーバーで管理しています
+              データの保管・AI処理ともに、AWSの日本国内リージョンで行っています
             </p>
           </div>
 
@@ -527,7 +527,7 @@ export default function Home() {
                 icon: Shield,
                 title: "AIに学習されない",
                 description:
-                  "音声データ・文字起こし内容・生成結果は、利用するAIの学習データとして使用されません。OpenAI・Anthropic両社との契約上も、顧客データをモデルの学習に使用しないことが明記されています。",
+                  "音声データ・文字起こし内容・生成結果は、AIの学習データとして使用されません。AI処理は日本国内（AWS東京・大阪リージョン）で完結し、処理後のデータはAI事業者側に残りません。",
               },
               {
                 icon: Lock,
@@ -1002,16 +1002,6 @@ export default function Home() {
                 <li>
                   <a href="/tokushoho" className="hover:text-white transition">
                     特定商取引法に基づく表記
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/overseas-transfer-consent.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-white transition"
-                  >
-                    個人情報の海外移転に関する本人同意書
                   </a>
                 </li>
               </ul>
